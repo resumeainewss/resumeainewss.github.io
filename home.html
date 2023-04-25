@@ -1,68 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <title>Bem-Vindo(a) ao ChatGPT!</title>
-    <style>
-        body {
-            background-color: #a9a9a9;
-        }
-        #header {
-            background-color: #008080;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-        #start-button {
-            margin-top: 10%;
-            text-align: center;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #start-button .ui-btn-text {
-            font-size: 5vw;
-        }
-        #youtube-button {
-            text-align: center;
-            margin-top: 5%;
-        }
-        #youtube-button img, #instagram-button img {
-            height: 5vh;
-            width: 5vh;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-        #logo {
-            max-width: 80%;
-            margin: auto;
-            display: block;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Bem-vindo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div data-role="page">
-        <div data-role="header" id="header">
-            <h1>Bem-Vindo(a) ao ChatGPT!</h1>
-        </div>
-
-        <div role="main" class="ui-content">
-            <img id="logo" src="https://via.placeholder.com/300x150" alt="Logo" />
-            <div id="start-button">
-                <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-grid ui-btn-icon-left">Começar</a>
-            </div>
-            <div id="youtube-button">
-                <a href="https://www.youtube.com/channel/news.resumeai" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/>
-                </a>
-                <a href="https://www.instagram.com/news.resumeai/" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png"/>
-                </a>
-            </div>
-        </div>
+  <div class="container">
+    <h1 class="text-center">Bem-vindo</h1>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-primary btn-lg">Começa</button>
     </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <a href="https://www.youtube.com/@news.resumeai" target="_blank">
+            <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/>
+          </a>
+        </div>
+        <div class="col-12 col-md-6">
+          <a href="https://www.instagram.com/news.resumeai" target="_blank">
+            <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

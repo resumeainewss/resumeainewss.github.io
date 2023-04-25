@@ -8,85 +8,81 @@
 			padding: 0;
 			font-family: Arial, sans-serif;
 		}
+    	/* Estilo do botão */
+	.button {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		background-color: #333;
+		color: #fff;
+		padding: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
 
-		/* Estilo do botão */
-		.button {
-			position: fixed;
-			top: 10px;
-			right: 10px;
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			border-radius: 5px;
-			cursor: pointer;
-		}
+	/* Estilo do menu */
+	.menu {
+		position: fixed;
+		top: 0;
+		left: -250px; /* Esconde o menu */
+		width: 250px;
+		height: 100%;
+		background-color: #eee;
+		transition: all 0.3s ease-in-out;
+	}
 
-		/* Estilo do menu */
-		.menu {
-			position: fixed;
-			top: 0;
-			left: -250px; /* Esconde o menu */
-			width: 250px;
-			height: 100%;
-			background-color: #eee;
-			transition: all 0.3s ease-in-out;
-		}
+	/* Mostra o menu quando o botão é clicado */
+	.menu-open {
+		left: 0;
+	}
 
-		/* Mostra o menu quando o botão é clicado */
-		.menu-open {
-			left: 0;
-		}
+	/* Estilo dos itens do menu */
+	.menu ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-		/* Estilo dos itens do menu */
-		.menu ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
+	.menu li {
+		padding: 10px;
+		border-bottom: 1px solid #ccc;
+	}
 
-		.menu li {
-			padding: 10px;
-			border-bottom: 1px solid #ccc;
-		}
-
-		.menu li:hover {
-			background-color: #ccc;
-		}
-	</style>
+	.menu li:hover {
+		background-color: #ccc;
+	}
+</style>
 </head>
 <body>
 	<!-- Botão para abrir/fechar o menu -->
 	<div class="button" onclick="toggleMenu()">Menu</div>
+  <!-- Menu -->
+<div class="menu" id="menu">
+	<ul>
+		<li><a href="#">Item 1</a></li>
+		<li><a href="#">Item 2</a></li>
+		<li><a href="#">Item 3</a></li>
+		<li><a href="#">Item 4</a></li>
+		<li><a href="#">Item 5</a></li>
+	</ul>
+</div>
 
-	<!-- Menu -->
-	<div class="menu" id="menu">
-		<ul>
-			<li><a href="#">Item 1</a></li>
-			<li><a href="#">Item 2</a></li>
-			<li><a href="#">Item 3</a></li>
-			<li><a href="#">Item 4</a></li>
-			<li><a href="#">Item 5</a></li>
-		</ul>
-	</div>
+<!-- Conteúdo da página -->
+<div style="padding: 50px;">
+	<h1>Conteúdo da Página</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor odio id ultrices rutrum. Fusce vulputate euismod nulla, eu tristique tortor auctor in. Suspendisse eleifend commodo massa, sit amet fringilla velit commodo eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse nec facilisis diam. Nunc laoreet ex euismod, dapibus felis ac, pellentesque sapien. Sed nec nibh eget lacus tristique vehicula. Vivamus ut est sit amet ante faucibus gravida id ac justo. Nunc ultrices velit nec mi efficitur, nec tristique nisi suscipit. Suspendisse malesuada bibendum diam, sit amet luctus turpis euismod quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+</div>
 
-	<!-- Conteúdo da página -->
-	<div style="padding: 50px;">
-		<h1>Conteúdo da Página</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor odio id ultrices rutrum. Fusce vulputate euismod nulla, eu tristique tortor auctor in. Suspendisse eleifend commodo massa, sit amet fringilla velit commodo eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse nec facilisis diam. Nunc laoreet ex euismod, dapibus felis ac, pellentesque sapien. Sed nec nibh eget lacus tristique vehicula. Vivamus ut est sit amet ante faucibus gravida id ac justo. Nunc ultrices velit nec mi efficitur, nec tristique nisi suscipit. Suspendisse malesuada bibendum diam, sit amet luctus turpis euismod quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-	</div>
-
-	<!-- Script para abrir/fechar o menu -->
-	<script>
-		function toggleMenu() {
-			var menu = document.getElementById("menu");
-			if (menu.classList.contains("menu-open)) 
-      {
-menu.classList.remove("menu-open");
-} else {
-menu.classList.add("menu-open");
-}
-}
+<!-- Script para abrir/fechar o menu -->
+<script>
+	function toggleMenu() {
+		var menu = document.getElementById("menu");
+		if (menu.classList.contains("menu-open")) {
+    menu.classList.remove("menu-open");
+  } else {
+    menu.classList.add("menu-open");
+  }
+	}
 </script>
-
 </body>
 </html>

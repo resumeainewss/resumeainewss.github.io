@@ -43,7 +43,7 @@
       });
 
       // ao clicar em um item do menu
-      $("#menu li").click(function () {
+      $("#menu a").click(function () {
         // remove a classe active de todos os itens do menu
         $("#menu li").removeClass("active");
         // adiciona a classe active no item clicado
@@ -147,9 +147,7 @@
       }
     }
   </style>
-
   </head>
-
   <body>
     <!-- botão de abrir o menu -->
     <button id="menu-btn" class="btn btn-secondary">

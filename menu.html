@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,46 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 
- <!-- Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSbNBJ"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSbNBJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
-<script>
-$(document).ready(function() {
-// esconde o menu ao carregar a página
-$("#menu").css("left", "-250px");
+  <script>
 
-// mostra o menu quando o botão "menu-btn" é clicado
-$("#menu-btn").click(function() {
-$("#menu").animate({ left: "0" }, 500);
-$("#content").animate({ marginLeft: "250px" }, 500);
-});
 
-// esconde o menu quando o botão "close-btn" é clicado
-$("#close-btn").click(function() {
-$("#menu").animate({ left: "-250px" }, 500);
-$("#content").animate({ marginLeft: "0" }, 500);
-});
-});
-</script>
+
+
+
+
+
+    $(document).ready(function () {
+      // esconde o menu ao carregar a página
+      $("#menu").css("left", "-250px");
+
+      // mostra o menu quando o botão "menu-btn" é clicado
+      $("#menu-btn").click(function () {
+        $("#menu").animate({ left: "0" }, 500);
+        $("#content").animate({ marginLeft: "250px" }, 500);
+      });
+
+      // esconde o menu quando o botão "close-btn" é clicado
+      $("#close-btn").click(function () {
+        $("#menu").animate({ left: "-250px" }, 500);
+        $("#content").animate({ marginLeft: "0" }, 500);
+      });
+    });
+  </script>
 
   <style>
     /* estilo do botão de abrir o menu */
@@ -56,7 +63,8 @@ $("#content").animate({ marginLeft: "0" }, 500);
     #menu {
       position: fixed;
       top: 0;
-      left: -250px; /* inicia escondido */
+      left: -250px;
+      /* inicia escondido */
       width: 250px;
       height: 100%;
       background-color: #f8f9fa;
@@ -89,172 +97,108 @@ $("#content").animate({ marginLeft: "0" }, 500);
     #content {
       margin-left: 0;
       transition: all 0.3s ease;
-  /* adiciona padding para não ficar sob o menu */
-  padding: 20px;
-  /* centraliza verticalmente */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+      /* adiciona padding para não ficar sob o menu */
+      padding: 20px;
+      /* centraliza verticalmente */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-/* estilo do botão de fechar o menu */
-#close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
+    /* estilo do botão de fechar o menu */
+    #close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
 
-/* esconde o menu quando a tela for maior que 768px */
-@media (min-width: 768px) {
-  #menu {
-    left: 0;
-  }
+    /* esconde o menu quando a tela for maior que 768px */
+    @media (min-width: 768px) {
+      #menu {
+        left: 0;
+      }
 
-  #content {
-    margin-left: 250px;
-  }
-}
-</style>
+      #content {
+        margin-left: 250px;
+      }
+    }
+  </style>
 </head>
-<body>
-  <!-- botão de abrir o menu -->
-  <button id="menu-btn" class="btn btn-primary">
-    <i class="fas fa-bars"></i>
-  </button>
-  <!-- menu -->
-  <div id="menu">
-    <ul>
-      <li class="active">
-        <a href="#" data-target="#home">Home</a>
-      </li>
-      <li>
-        <a href="#" data-target="#about">About</a>
-      </li>
-      <li>
-        <a href="#" data-target="#contact">Contact</a>
-      </li>
-    </ul>
-  </div>
-  <!-- botão de fechar o menu -->
-  <div id="close-btn">
-    <i class="fas fa-times"></i>
-  </div>
-  <!-- conteúdo -->
-  <div id="content">
-    <!-- página inicial -->
-    <div id="home">
-      <h1>Home</h1>
-      <p>Bem-vindo à página inicial!</p>
-    </div>
-    <!-- página sobre -->
-<div id="about" style="display: none;">
-  <h1>About</h1>
-  <p>Sobre a nossa empresa</p>
-</div>
 
-<!-- página contato -->
-<div id="contact" style="display: none;">
-  <h1>Contact</h1>
-  <p>Entre em contato conosco</p>
-</div>
-</div>
-<!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/06b29424af.js" crossorigin="anonymous"></script>
-<!-- Script para controlar o menu -->
-<script>
-  $(document).ready(function() {
-    // esconde o menu ao carregar a página
-    $("#menu").css("left", "-250px");
-
-    // ao clicar no botão de abrir o menu
-    $("#menu-btn").click(function() {
-      $("#menu").css("left", "0");
-    });
-
-    // ao clicar no botão de fechar o menu
-    $("#close-btn").click(function() {
-      $("#menu").css("left", "-250px");
-    });
-
-    // ao clicar em um item do menu
-    $("#menu a").click(function() {
-      // remove a classe active de todos os itens do menu
-      $("#menu li").removeClass("active");
-      // adiciona a classe active no item clicado
-      $(this).parent().addClass("active");
-      // esconde todos os DIVs do conteúdo
-      $("#content div").hide();
-      // mostra o DIV correspondente ao item clicado
-      $($(this).data("target")).show();
-      // fecha o menu (somente se a tela for menor que 768px)
-      if ($(window).width() < 768) {
-        $("#menu").css("left", "-250px");
-}
-});
-// ao redimensionar a tela
-$(window).resize(function() {
-  // se a tela for maior ou igual a 768px, mostra o menu
-  if ($(window).width() >= 768) {
-    $("#menu").css("left", "0");
-  }
-  // se a tela for menor que 768px, esconde o menu
-  else {
-    $("#menu").css("left", "-250px");
-  }
-});
-});
-</script>
-
-</head>
-<body>
-  <!-- botão de abrir o menu -->
-  <button id="menu-btn" class="btn btn-secondary">
-    <i class="fas fa-bars"></i>
-  </button>
-  <!-- menu -->
-  <div id="menu">
-    <ul>
-      <li class="active"><a href="#" data-target="#page1">Página 1</a></li>
-      <li><a href="#" data-target="#page2">Página 2</a></li>
-      <li><a href="#" data-target="#page3">Página 3</a></li>
-      <li><a href="#" data-target="#page4">Página 4</a></li>
-      <li><a href="#" data-target="#page5">Página 5</a></li>
-      <li><a href="#" data-target="#page6">Página 6</a></li>
-    </ul>
-    <button id="close-btn" class="btn btn-secondary">
-      <i class="fas fa-times"></i>
+  <body>
+    <!-- botão de abrir o menu -->
+    <button id="menu-btn" class="btn btn-secondary">
+      <i class="fas fa-bars"></i>
     </button>
-  </div>
-  <!-- conteúdo -->
-  <div id="content">
-    <div id="page1" class="container">
-      <h1>Página 1</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
+    <!-- menu -->
+    <div id="menu">
+      <ul>
+        <li class="active"><a href="#" data-target="#page1">Página 1</a></li>
+        <li><a href="#" data-target="#page2">Página 2</a></li>
+        <li><a href="#" data-target="#page3">Página 3</a></li>
+        <li><a href="#" data-target="#page4">Página 4</a></li>
+        <li><a href="#" data-target="#page5">Página 5</a></li>
+        <li><a href="#" data-target="#page6">Página 6</a></li>
+      </ul>
+      <button id="close-btn" class="btn btn-secondary">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-    <div id="page2" class="container">
-      <h1>Página 2</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
-    </div>
-    <div id="page3" class="container">
-      <h1>Página 3</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra.Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
-    </div>
-    <div id="page4" class="container">
-    <h1>Página 4</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
-    </div>
-    <div id="page5" class="container">
-    <h1>Página 5</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
-    </div>
-    <div id="page6" class="container">
-    <h1>Página 6</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum lectus orci vel lorem.</p>
-    </div>
-    
+    <!-- conteúdo -->
+    <div id="content">
+      <div id="page1" class="container">
+        <h1>Página 1</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
       </div>
-    </body>
-    </html>
+      <div id="page2" class="container">
+        <h1>Página 2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
+      </div>
+      <div id="page3" class="container">
+        <h1>Página 3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra.Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
+      </div>
+      <div id="page4" class="container">
+        <h1>Página 4</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
+      </div>
+      <div id="page5" class="container">
+        <h1>Página 5</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
+      </div>
+      <div id="page6" class="container">
+        <h1>Página 6</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
+          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
+          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
+          lectus orci vel lorem.</p>
+      </div>
+
+    </div>
+  </body>
+
+</html>

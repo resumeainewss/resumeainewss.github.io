@@ -1,0 +1,16 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .footer img {
+    margin: 0 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer img {
+      margin: 0 2rem;
+    }
+  }
+  

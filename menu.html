@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu da Aplicação</title>
+    <title>Menu</title>
     <!-- Biblioteca Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Biblioteca FontAwesome -->
@@ -40,33 +40,187 @@
 
       .menu {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
       
+      .menu li {
+        margin-right: 20px;
+      }
+
       .menu a {
         color: #fff;
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
-        margin-right: 20px;
         transition: color 0.2s ease-in-out;
       }
 
       .menu a:hover {
         color: #ccc;
       }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Minha Aplicação</h1>
-      <nav class="menu">
-        <a href="#">Página 1</a>
-        <a href="#">Página 2</a>
-        <a href="#">Página 3</a>
-        <a href="#">Página 4</a>
-      </nav>
-    </header>
-  </body>
-</html>
+      
+      .welcome {
+        text-align: center;
+        padding: 100px 20px 50px 20px;
+        color: #000000;
+        border: 10px solid #008080;
+      }
+      
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 0;
+        border: none;
+        background-color: #008080;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 500;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 400px;
+        transition: background-color 0.2s ease-in-out;
+      }
+      button:hover {
+        background-color: #006565;
+      }
+      
+      .jumbotron {
+        background-color: #f9f9f9;
+        padding: 100px 20px 50px 20px;
+        border-radius: 5px;
+        box-shadow: 0
+        px 0 10px rgba(0,0,0,0.2);
+        text-align: center;
+      }
+      .jumbotron h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .jumbotron p {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  
+  .card-deck {
+    margin-top: 50px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card .card-img-top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .card a {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 0;
+    border: none;
+    background-color: #008080;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .card a:hover {
+    background-color: #006565;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Meu Site</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="welcome">
+    <h2>Bem-vindo ao meu site</h2>
+    <p>Este é um site de exemplo criado para demonstrar algumas funcionalidades de HTML, CSS e Bootstrap.</p>
+    <button>Ver Mais</button>
+  </div>
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Por que escolher nosso produto?</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada ante ac tellus bibendum ultrices. Proin eget lectus vestibulum, vestibulum massa in, commodo orci.</p>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Imagem+de+exemplo" alt="Imagem de exemplo">
+        <div class="card-body">
+          <h3>Produto 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada ante ac tellus bibendum ultrices.</p>
+          <a href="#">Saibamais</a>
+        </div>
+        </div>
+        <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Imagem+de+exemplo" alt="Imagem de exemplo">
+        <div class="card-body">
+        <h3>Produto 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada ante ac tellus bibendum ultrices.</p>
+        <a href="#">Saiba mais</a>
+        </div>
+        </div>
+        <div class="card">
+        <img class="card-img-top" src="https://via.placeholder.com/300x200.png?text=Imagem+de+exemplo" alt="Imagem de exemplo">
+        <div class="card-body">
+        <h3>Produto 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada ante ac tellus bibendum ultrices.</p>
+        <a href="#">Saiba mais</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Biblioteca jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Biblioteca Bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVQ8b1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+          </body>
+        </html>

@@ -77,6 +77,11 @@
 		}
 	}
 </style>
+<script>
+	function abrirPagina(url) {
+		window.location.href = url;
+	}
+</script>
 </head>
 <body>
 	<!-- Botão para abrir/fechar o menu -->
@@ -84,37 +89,22 @@
 	<!-- Menu -->
 	<div class="menu" id="menu">
 		<ul>
-			<li><a href="#item1" onclick="toggleMenu()">Item 1</a></li>
-			<li><a href="#item2" onclick="toggleMenu()">Item 2</a></li>
-			<li><a href="#item3" onclick="toggleMenu()">Item 3</a></li>
-			<li><a href="#item4" onclick="toggleMenu()">Item 4</a></li>
-			<li><a href="#item5" onclick="toggleMenu()">Item 5</a></li>
+			<li><a href="#" onclick="abrirPagina('pagina1.html');toggleMenu()">Item 1</a></li>
+			<li><a href="#" onclick="abrirPagina('pagina2.html');toggleMenu()">Item 2</a></li>
+			<li><a href="#" onclick="abrirPagina('pagina3.html');toggleMenu()">Item 3</a></li>
+			<li><a href="#" onclick="abrirPagina('pagina4.html');toggleMenu()">Item 4</a></li>
+			<li><a href="#" onclick="abrirPagina('pagina5.html');toggleMenu()">Item 5</a></li>
 		</ul>
 	</div>
 	<!-- Conteúdo da página -->
 	<div class="content">
 		<h1>Bem-vindo ao meu site!</h1>
-		<p>Este é um exemplo de menu vertical responsivo com JavaScript puro.</p>
-		<h2 id="item1">Item 1</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae mi eu felis tempor sagittis vel vel quam. Nulla viverra ullamcorper tortor eu bibendum. Proin vestibulum tellus nunc, id suscipit quam bibendum a. Vivamus at lorem vel ipsum ullamcorper convallis eu sit amet neque.</p>
-    <h2 id="item2">Item 2</h2>
-    <p>Nulla non tellus sed odio efficitur elementum. Donec fermentum vel velit quis faucibus. Nulla consequat erat libero, vel posuere magna gravida a. Fusce et ante eu nisl lobortis bibendum vel vel nunc. Nam dictum, magna nec hendrerit pulvinar, quam nisi consequat lacus, ut ultrices lectus dolor vel odio.</p>
-    <h2 id="item3">Item 3</h2>
-    <p>Nam ut enim et est hendrerit varius sit amet eget dolor. Nam vitae hendrerit felis. Integer sem nulla, pharetra vel ultrices ut, dapibus vitae lorem. Fusce nec metus ut tellus volutpat malesuada. Donec ornare ex non quam sagittis, vitae imperdiet est pellentesque.</p>
-    <h2 id="item4">Item 4</h2>
-    <p>Vestibulum ac nulla malesuada, consectetur eros sed, gravida nisl. Sed et dapibus velit. Sed non nibh non odio ultricies vestibulum vel ut ante. Ut nec bibendum tellus. Nulla facilisi. Nulla pharetra lacus augue, id tincidunt eros lacinia ac. Duis ut est vitae magna aliquet efficitur.</p>
-    <h2 id="item5">Item 5</h2>
-    <p>Pellentesque volutpat, libero eget dapibus convallis, enim elit pulvinar nunc, sed euismod ipsum massa sit amet magna. Vivamus mollis orci euismod, vehicula massa eget, consequat libero. Praesent eget purus eu lorem mollis sodales vel ut erat. Nulla facilisi. Proin tristique, eros a commodo iaculis, neque ex sodales sapien, non fermentum quam lorem auctor felis.</p>
+		<p>Este é um exemplo de menu
     </div>
-    <!-- JavaScript para abrir/fechar o menu -->
     <script>
     function toggleMenu() {
     var menu = document.getElementById("menu");
-    if (menu.classList.contains("menu-open")) {
-    menu.classList.remove("menu-open");
-    } else {
-    menu.classList.add("menu-open");
-    }
+    menu.classList.toggle("menu-open");
     }
     </script>
     

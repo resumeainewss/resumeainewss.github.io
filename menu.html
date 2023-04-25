@@ -30,7 +30,7 @@
   <script>
     $(document).ready(function () {
       // esconde o menu ao carregar a página
-      $("#menu").css("left", "-250px");
+      $("#menu").css("left", "-100%");
 
       // ao clicar no botão de abrir o menu
       $("#menu-btn").click(function () {
@@ -39,7 +39,7 @@
 
       // ao clicar no botão de fechar o menu
       $("#close-btn").click(function () {
-        $("#menu").css("left", "-250px");
+        $("#menu").css("left", "-100%");
       });
 
       // ao clicar em um item do menu
@@ -54,7 +54,7 @@
         $($(this).data("target")).show();
         // fecha o menu (somente se a tela for menor que 768px)
         if ($(window).width() < 768) {
-          $("#menu").css("left", "-250px");
+          $("#menu").css("left", "-100%");
         }
       });
       // ao redimensionar a tela
@@ -65,7 +65,7 @@
         }
         // se a tela for menor que 768px, esconde o menu
         else {
-          $("#menu").css("left", "-250px");
+          $("#menu").css("left", "-100%");
         }
       });
     });
@@ -76,23 +76,21 @@
     #menu-btn {
       position: fixed;
       top: 10px;
-      right: 10px;
+      right: 20px;
       z-index: 9999;
     }
 
     /* estilo do menu */
     #menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      /* inicia escondido */
-      width: 250px;
-      height: 100%;
-      background-color: #f8f9fa;
-      transition: left 0.3s ease-in-out;
-      z-index: 9998;
-    }
-
+  position: fixed;
+  top: 0;
+  left: -100%; /* inicia escondido */
+  width: 30%;
+  height: 100%;
+  background-color: #005050;
+  transition: left 0.3s ease-in-out;
+  z-index: 9998;
+}
     /* estilo dos itens do menu */
     #menu ul {
       list-style: none;
@@ -143,7 +141,7 @@
       }
 
       #content {
-        margin-left: 250px;
+        margin-left: 30%;
       }
     }
   </style>

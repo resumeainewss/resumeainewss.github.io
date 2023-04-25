@@ -170,12 +170,189 @@
     <!-- conteúdo -->
     <div id="content">
       <div id="page1" class="container">
-        <h1>Página 1</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-          suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-          vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-          lectus orci vel lorem.</p>
+        <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI</title>
+    <!-- Biblioteca Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Biblioteca FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+		body {
+		  margin: 0;
+		  padding: 0;
+		  height: 100%;
+		  background-color: #f9f9f9;
+		  color: #333;
+		  font-family: 'Roboto', sans-serif;
+		}
+		
+		header {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  background-color: #008080;
+		  text-align: center;
+		  padding: 10px;
+		}
+		
+		h1 {
+		  margin: 0;
+		  font-size: 36px;
+		  font-weight: 600;
+		  color: #fff;
+		}
+		
+		.welcome {
+		  text-align: center;
+		  padding: 100px 20px 50px 20px;
+		  color: #000000;
+		  border: 10px solid #008080;
+		}
+		
+		button {
+		  display: block;
+		  margin: 20px auto;
+		  padding: 10px 0;
+		  border: none;
+		  background-color: #008080;
+		  color: #fff;
+		  font-size: 24px;
+		  font-weight: 500;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  width: 100%;
+		  max-width: 400px;
+		  transition: background-color 0.2s ease-in-out;
+		}
+		button:hover {
+		  background-color: #006565;
+		}
+		
+		.jumbotron {
+		  background-color: #f9f9f9;
+		  padding: 100px 20px 50px 20px;
+		  border-radius: 5px;
+		  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+		  margin-top: 20px;
+		  border: 10px solid #008080;
+		}
+		
+		.jumbotron h1 {
+		  font-size: 42px;
+		  font-weight: 600;
+		  color: #008080;
+		  text-align: center;
+		}
+		
+		.jumbotron hr {
+		  width: 60px;
+		  border-top: 3px solid #008080;
+		  margin: 30px auto;
+		}
+		
+		.jumbotron p {
+		  font-size: 18px;
+		  line-height: 1.5;
+		  margin-bottom: 20px;
+		  text-align: justify;
+		}
+		
+		.jumbotron p:last{
+		margin-bottom: 0;
+		}
+			.skills {
+	  background-color: #f9f9f9;
+	  padding: 50px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  margin-top: 50px;
+	}
+	
+	.skills h2 {
+	  font-size: 36px;
+	  font-weight: 600;
+	  color: #008080;
+	  margin-bottom: 30px;
+	}
+	
+	.skill-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	  margin-top: 30px;
+	}
+	
+	.skill {
+	  background-color: #fff;
+	  padding: 20px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  width: calc(33.33% - 10px);
+	  margin-bottom: 20px;
+	}
+	
+	.skill h3 {
+	  font-size: 24px;
+	  font-weight: 500;
+	  color: #008080;
+	  margin-bottom: 10px;
+	}
+	
+	.skill p {
+	  font-size: 16px;
+	  line-height: 1.5;
+	  margin-bottom: 0;
+	}
+	
+	@media (max-width: 768px) {
+	  .jumbotron {
+	    margin-top: 100px;
+	  }
+	  
+	  .skill {
+	    width: calc(50% - 10px);
+	  }
+	}
+</style>
+  </head>
+  <body>
+    <header>
+      <h1>ResumeAI</h1>
+    </header>
+<div class="welcome">
+  <h2>Bem-vindo ao ResumeAI</h2>
+  <p>"ResumeAI: Aprenda mais, em menos tempo."</p>
+  <button>Começar</button>
+  </div>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Quem somos</h1>
+    <hr>
+	<p>Bem-vindo ao canal ResumeAI, onde você encontrará resumos confiáveis e ágeis de notícias de política, economia e mercado financeiro. Nosso objetivo é fornecer informações relevantes e atualizadas de forma prática e objetiva para um público-alvo composto por pessoas interessadas nessas áreas, incluindo profissionais do mercado financeiro, estudantes e pesquisadores. Mas não paramos por aí! Também oferecemos cursos e treinamentos especializados em política e economia, ministrados por nossos profissionais especializados e convidados renomados. Acreditamos que a educação é um complemento essencial para a compreensão das notícias e para o desenvolvimento profissional e pessoal de nosso público. Com uma equipe dedicada e uma estratégia de conteúdo bem definida, o canal ResumeAI está comprometido em ser uma fonte confiável e completa de informações e aprendizado para seus seguidores. Junte-se a nós e fique à frente dos acontecimentos do mundo!</p>
+  </div>
+</div>
+<footer class="text-center py-3">
+  <p>Copyright © 2023 ResumeAI</p>
+  <a href="https://www.youtube.com/channel/UCFJHrs7_MXaTzcT12T6XGYA"><img src="https://img.icons8.com/fluent/48/000000/youtube-play.png"/></a>
+  <a href="https://www.instagram.com/news.resumeai/"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
+  
+</footer>
+<!-- Biblioteca JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-/1XEn65rQVu2szHP3r1+zFoBnYYbIuQ7i6sDhHP9L9O+5Ka8a" crossorigin="anonymous"></script>
+<!-- Biblioteca Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Biblioteca Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Biblioteca FontAwesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-nkwFhOGW1QbOw+GZmTJfAmTxbWgO9XpT+CoR/svN8YIXJJB7it+1NlUpPoAWvz8OW0t+fn9tIBFyj4LO4imlvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
       </div>
       <div id="page2" class="container">
         <h1>Página 2</h1>

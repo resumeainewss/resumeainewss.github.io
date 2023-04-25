@@ -1,79 +1,83 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>ResumeAI</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: #fff;
-			color: #000;
-			font-family: sans-serif;
-		}
-		
-		.header {
-			background-color: #008080;
-			color: #fff;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			padding: 10px;
-			text-align: center;
-		}
-		
-		.content {
-			margin-top: 60px;
-			padding: 20px;
-			text-align: center;
-		}
-		
-		.footer {
-			background-color: #a9a9a9;
-			color: #fff;
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: 10px;
-			text-align: center;
-		}
-		
-		.social-icons {
-			display: inline-block;
-			margin: 0 10px;
-			color: #fff;
-			font-size: 1.5em;
-			text-decoration: none;
-		}
-		
-		.social-icons:hover {
-			color: #ccc;
-		}
-		
-		@media screen and (max-width: 768px) {
-			.content {
-				margin-top: 120px;
-			}
-		}
-	</style>
-</head>
-<body>
-	<div class="header">
-		<h1>ResumeAI</h1>
-	</div>
-	<div class="content">
-		<h2>Bem-vindo ao ResumeAI</h2>
-		<p>Uma plataforma inteligente para ajudar você a criar um currículo incrível.</p>
-		<a href="#" class="btn btn-primary btn-lg">Começar</a>
-	</div>
-	<div class="footer">
-		<a href="https://www.youtube.com/@news.resumeai" class="social-icons"><i class="fa fa-youtube"></i></a>
-		<a href="https://www.instagram.com/news.resumeai" class="social-icons"><i class="fa fa-instagram"></i></a>
-	</div>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI</title>
+    <!-- Biblioteca Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Biblioteca FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #008080;
+        color: #a9a9a9;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #008080;
+        text-align: center;
+        padding: 10px;
+      }
+      h1 {
+        margin: 0;
+      }
+      .welcome {
+        text-align: center;
+        padding: 100px 20px;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border: none;
+        background-color: #a9a9a9;
+        color: #008080;
+        font-size: 24px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #008080;
+        text-align: center;
+        padding: 10px;
+      }
+      footer a {
+        color: #a9a9a9;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ResumeAI</h1>
+    </header>
+    <div class="welcome">
+      <p>Bem-vindo ao ResumeAI</p>
+      <button>Começar</button>
+    </div>
+    <footer>
+      <a href="https://www.youtube.com/@news.resumeai"><i class="fab fa-youtube fa-2x"></i></a>
+      <a href="https://www.instagram.com/news.resumeai"><i class="fab fa-instagram fa-2x"></i></a>
+    </footer>
+<!-- Biblioteca JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-/1XEn65rQVu2szHP3r1+zFoBnYYbIuQ7i6sDhHP9L9O+5Ka8a" crossorigin="anonymous"></script>
+<!-- Biblioteca Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Biblioteca Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Biblioteca FontAwesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-nkwFhOGW1QbOw+GZmTJfAmTxbWgO9XpT+CoR/svN8YIXJJB7it+1NlUpPoAWvz8OW0t+fn9tIBFyj4LO4imlvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

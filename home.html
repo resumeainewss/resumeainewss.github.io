@@ -1,38 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Bem-vindo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+	<title>ResumeAI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #fff;
+			color: #000;
+			font-family: sans-serif;
+		}
+		
+		.header {
+			background-color: #008080;
+			color: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.content {
+			margin-top: 60px;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.footer {
+			background-color: #a9a9a9;
+			color: #fff;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.social-icons {
+			display: inline-block;
+			margin: 0 10px;
+			color: #fff;
+			font-size: 1.5em;
+			text-decoration: none;
+		}
+		
+		.social-icons:hover {
+			color: #ccc;
+		}
+		
+		@media screen and (max-width: 768px) {
+			.content {
+				margin-top: 120px;
+			}
+		}
+	</style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="text-center">Bem-vindo</h1>
-    <div class="d-flex justify-content-center">
-      <button class="btn btn-primary btn-lg">Começa</button>
-    </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <a href="https://www.youtube.com/@news.resumeai" target="_blank">
-            <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/>
-          </a>
-        </div>
-        <div class="col-12 col-md-6">
-          <a href="https://www.instagram.com/news.resumeai" target="_blank">
-            <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<div class="header">
+		<h1>ResumeAI</h1>
+	</div>
+	<div class="content">
+		<h2>Bem-vindo ao ResumeAI</h2>
+		<p>Uma plataforma inteligente para ajudar você a criar um currículo incrível.</p>
+		<a href="#" class="btn btn-primary btn-lg">Começar</a>
+	</div>
+	<div class="footer">
+		<a href="https://www.youtube.com/@news.resumeai" class="social-icons"><i class="fa fa-youtube"></i></a>
+		<a href="https://www.instagram.com/news.resumeai" class="social-icons"><i class="fa fa-instagram"></i></a>
+	</div>
 </body>
 </html>

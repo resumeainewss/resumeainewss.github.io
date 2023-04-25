@@ -183,7 +183,8 @@
         <h1>Página 2</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
           suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-          pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
+          pharetra. Pro
+          in laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
           vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
           lectus orci vel lorem.</p>
       </div>
@@ -221,6 +222,12 @@
       </div>
 
     </div>
+    <script>
+  $(document).ready(function() {
+    // esconde todos os DIVs do conteúdo, exceto os dois primeiros
+    $("#content div").slice(2).hide();
+  });
+</script>
   </body>
 
 </html>

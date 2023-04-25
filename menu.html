@@ -24,6 +24,53 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
+     <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/06b29424af.js" crossorigin="anonymous"></script>
+  <!-- Script para controlar o menu -->
+  <script>
+    $(document).ready(function () {
+      // esconde o menu ao carregar a página
+      $("#menu").css("left", "-250px");
+
+      // ao clicar no botão de abrir o menu
+      $("#menu-btn").click(function () {
+        $("#menu").css("left", "0");
+      });
+
+      // ao clicar no botão de fechar o menu
+      $("#close-btn").click(function () {
+        $("#menu").css("left", "-250px");
+      });
+
+      // ao clicar em um item do menu
+      $("#menu a").click(function () {
+        // remove a classe active de todos os itens do menu
+        $("#menu li").removeClass("active");
+        // adiciona a classe active no item clicado
+        $(this).parent().addClass("active");
+        // esconde todos os DIVs do conteúdo
+        $("#content div").hide();
+        // mostra o DIV correspondente ao item clicado
+        $($(this).data("target")).show();
+        // fecha o menu (somente se a tela for menor que 768px)
+        if ($(window).width() < 768) {
+          $("#menu").css("left", "-250px");
+        }
+      });
+      // ao redimensionar a tela
+      $(window).resize(function () {
+        // se a tela for maior ou igual a 768px, mostra o menu
+        if ($(window).width() >= 768) {
+          $("#menu").css("left", "0");
+        }
+        // se a tela for menor que 768px, esconde o menu
+        else {
+          $("#menu").css("left", "-250px");
+        }
+      });
+    });
+  </script>
+
   <style>
     /* estilo do botão de abrir o menu */
     #menu-btn {
@@ -100,7 +147,8 @@
       }
     }
   </style>
-</head>
+
+  </head>
 
   <body>
     <!-- botão de abrir o menu -->

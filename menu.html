@@ -24,32 +24,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-  <script>
-
-
-
-
-
-
-
-    $(document).ready(function () {
-      // esconde o menu ao carregar a página
-      $("#menu").css("left", "-250px");
-
-      // mostra o menu quando o botão "menu-btn" é clicado
-      $("#menu-btn").click(function () {
-        $("#menu").animate({ left: "0" }, 500);
-        $("#content").animate({ marginLeft: "250px" }, 500);
-      });
-
-      // esconde o menu quando o botão "close-btn" é clicado
-      $("#close-btn").click(function () {
-        $("#menu").animate({ left: "-250px" }, 500);
-        $("#content").animate({ marginLeft: "0" }, 500);
-      });
-    });
-  </script>
-
   <style>
     /* estilo do botão de abrir o menu */
     #menu-btn {

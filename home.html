@@ -13,9 +13,9 @@
 		  margin: 0;
 		  padding: 0;
 		  height: 100%;
-		  background-color: #fff;
-		  color: #fff;
-		  font-family: Arial, sans-serif;
+		  background-color: #f9f9f9;
+		  color: #333;
+		  font-family: 'Roboto', sans-serif;
 		}
 		
 		header {
@@ -30,6 +30,9 @@
 		
 		h1 {
 		  margin: 0;
+		  font-size: 36px;
+		  font-weight: 600;
+		  color: #fff;
 		}
 		
 		.welcome {
@@ -47,46 +50,200 @@
 		  background-color: #008080;
 		  color: #fff;
 		  font-size: 24px;
+		  font-weight: 500;
 		  border-radius: 5px;
 		  cursor: pointer;
 		  width: 100%;
-		  padding: 10px 20px;
-		  box-sizing: border-box; /* garante que o preenchimento não aumente a largura do botão */
+		  max-width: 400px;
+		  transition: background-color 0.2s ease-in-out;
+		}
+		button:hover {
+		  background-color: #006565;
 		}
 		
-		footer {
-		  position: fixed;
-		  bottom: 0;
-		  left: 0;
-		  right: 0;
-		  background-color: #008080;
-		  text-align: center;
-		  padding: 10px;
+		.jumbotron {
+		  background-color: #f9f9f9;
+		  padding: 50px;
+		  border-radius: 5px;
+		  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+		  margin-top: 150px;
 		}
 		
-		footer a {
-		  color: #fff;
-		  margin: 0 10px;
+		.jumbotron h1 {
+		  font-size: 42px;
+		  font-weight: 600;
+		  color: #008080;
 		}
-	  </style>
+		
+		.jumbotron hr {
+		  width: 60px;
+		  border-top: 3px solid #008080;
+		  margin: 30px auto;
+		}
+		
+		.jumbotron p {
+		  font-size: 18px;
+		  line-height: 1.5;
+		  margin-bottom: 20px;
+		}
+		
+		.jumbotron p:last{
+		margin-bottom: 0;
+		}
+			.skills {
+	  background-color: #f9f9f9;
+	  padding: 50px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  margin-top: 50px;
+	}
+	
+	.skills h2 {
+	  font-size: 36px;
+	  font-weight: 600;
+	  color: #008080;
+	  margin-bottom: 30px;
+	}
+	
+	.skill-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	  margin-top: 30px;
+	}
+	
+	.skill {
+	  background-color: #fff;
+	  padding: 20px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  width: calc(33.33% - 10px);
+	  margin-bottom: 20px;
+	}
+	
+	.skill h3 {
+	  font-size: 24px;
+	  font-weight: 500;
+	  color: #008080;
+	  margin-bottom: 10px;
+	}
+	
+	.skill p {
+	  font-size: 16px;
+	  line-height: 1.5;
+	  margin-bottom: 0;
+	}
+	
+	@media (max-width: 768px) {
+	  .jumbotron {
+	    margin-top: 100px;
+	  }
+	  
+	  .skill {
+	    width: calc(50% - 10px);
+	  }
+	}
+</style>
   </head>
   <body>
     <header>
       <h1>ResumeAI</h1>
     </header>
-	<div class="container">
-		<!-- Adicione a classe "jumbotron" para criar um fundo cinza claro -->
-		<div class="jumbotron">
-		  <h1 class="display-4">Bem-vindo ao ResumeAI</h1>
-		  <hr class="my-4">
-		  <p class="lead">O canal ResumeAI oferece cursos gratuitos nas áreas de política, economia, mercado financeiro e tecnologia, como uma forma de complementar o conteúdo e oferecer mais valor ao público interessado. Além disso, fornecemos notícias rápidas e de fácil entendimento nessas áreas, com o objetivo de manter nosso público atualizado e informado.</p>
-		  <p class="lead">Nós buscamos constantemente novas formas de agregar valor aos nossos seguidores, como promover debates online e oferecer materiais exclusivos para download. Com essa estratégia, o ResumeAI se destaca como uma fonte confiável e abrangente de informações.</p>
-		</div>
-		<button>Começar</button>
-    <footer>
-      <a href="https://www.youtube.com/@news.resumeai"><i class="fab fa-youtube fa-2x"></i></a>
-      <a href="https://www.instagram.com/news.resumeai"><i class="fab fa-instagram fa-2x"></i></a>
-    </footer>
+<div class="welcome">
+  <h2>Bem-vindo ao ResumeAI</h2>
+  <p>Insira suas informações pessoais e profissionais para criar um currículo profissional em segundos!</p>
+  <button>Criar currículo</button>
+</div>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Sobre mim</h1>
+    <hr>
+    <p>Eu sou um desenvolvedor web com mais de 5 anos de experiência em criação de sites e aplicativos web.</p>
+    <p>Minhas habilidades incluem HTML, CSS, JavaScript, PHP e MySQL.</p>
+    <p>Além disso, tenho experiência em trabalhar com vários frameworks, como Bootstrap, jQuery, Laravel e React.</p>
+  </div>
+  
+  <div class="skills">
+    <h2>Habilidades</h2>
+    <div class="skill-list">
+      <div class="skill">
+        <h3>HTML</h3>
+        <p>Domino completamente a linguagem de marcação HTML e posso criar páginas web semânticas e acessíveis.</p>
+      </div>
+      <div class="skill">
+        <h3>CSS</h3>
+        <p>Tenho experiência em escrever CSS modular e escalável, além de trabalhar com pré-processadores como Sass e Less.</p>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <p>Domino a linguagem de programação JavaScript e posso criar interações e animações sofisticadas usando bibliotecas como jQuery e React.</p>
+      </div>
+      <div class="skill">
+        <h3>PHP</h3>
+<p>Tenho habilidades em desenvolvimento de aplicações web utilizando a linguagem PHP e seus principais frameworks, como Laravel e CodeIgniter.</p>
+</div>
+<div class="skill">
+<h3>MySQL</h3>
+<p>Tenho experiência em desenvolvimento de bancos de dados relacionais com MySQL, incluindo modelagem, consultas e otimização.</p>
+</div>
+</div>
+
+  </div>
+  <div class="education">
+    <h2>Educação</h2>
+    <div class="education-list">
+      <div class="education-item">
+        <h3>Bacharelado em Ciência da Computação</h3>
+        <p>Universidade Federal de Minas Gerais (UFMG)</p>
+        <p>Concluído em dezembro de 2015</p>
+      </div>
+      <div class="education-item">
+        <h3>Técnico em Informática</h3>
+        <p>Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais (IFMG)</p>
+        <p>Concluído em dezembro de 2011</p>
+      </div>
+    </div>
+  </div>
+  <div class="work-experience">
+    <h2>Experiência profissional</h2>
+    <div class="work-experience-list">
+      <div class="work-experience-item">
+        <h3>Desenvolvedor Web Sênior</h3>
+        <p>Empresa XPTO</p>
+        <p>Junho de 2020 - Presente</p>
+        <ul>
+          <li>Desenvolvimento e manutenção de aplicações web em PHP utilizando o framework Laravel</li>
+          <li>Desenvolvimento de interfaces de usuário responsivas com HTML, CSS e JavaScript</li>
+          <li>Criação e manutenção de bancos de dados MySQL</li>
+        </ul>
+      </div>
+      <div class="work-experience-item">
+        <h3>Desenvolvedor Web Pleno</h3>
+        <p>Empresa ABC</p>
+        <p>Maio de 2017 - Junho de 2020</p>
+        <ul>
+          <li>Desenvolvimento de aplicações web com PHP e o framework CodeIgniter</li>
+          <li>Criação de interfaces de usuário com HTML, CSS e JavaScript</li>
+          <li>Manutenção de bancos de dados MySQL</li>
+        </ul>
+      </div>
+      <div class="work-experience-item">
+        <h3>Desenvolvedor Web Júnior</h3>
+        <p>Empresa XYZ</p>
+        <p>Dezembro de 2015 - Maio de 2017</p>
+        <ul>
+          <li>Desenvolvimento de sites institucionais com WordPress</li>
+          <li>Criação de temas personalizados com HTML, CSS e JavaScript</li>
+          <li>Manutenção de bancos de dados MySQL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="text-center py-3">
+  <p>Copyright © 2023 ResumeAI</p>
+</footer>
 <!-- Biblioteca JQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-/1XEn65rQVu2szHP3r1+zFoBnYYbIuQ7i6sDhHP9L9O+5Ka8a" crossorigin="anonymous"></script>
 <!-- Biblioteca Popper -->

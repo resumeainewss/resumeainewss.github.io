@@ -9,67 +9,74 @@
 			font-family: Arial, sans-serif;
 		}
 
-		.menu {
+		/* Estilo do botão */
+		.button {
+			position: fixed;
+			top: 10px;
+			right: 10px;
 			background-color: #333;
 			color: #fff;
-			height: 100vh;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		/* Estilo do menu */
+		.menu {
 			position: fixed;
 			top: 0;
-			left: -250px;
+			left: -250px; /* Esconde o menu */
 			width: 250px;
-			padding: 20px;
+			height: 100%;
+			background-color: #eee;
 			transition: all 0.3s ease-in-out;
 		}
 
-		.menu a {
-			color: #fff;
-			text-decoration: none;
-			font-size: 20px;
-			display: block;
-			margin-bottom: 10px;
-		}
-
-		.menu a:hover {
-			color: #e5e5e5;
-		}
-
-		.btn-toggle {
-			background-color: #333;
-			color: #fff;
-			position: fixed;
-			top: 20px;
-			right: 20px;
-			padding: 10px 15px;
-			cursor: pointer;
-			z-index: 9999;
-		}
-
-		.btn-toggle:hover {
-			background-color: #444;
-		}
-
-		.show-menu {
+		/* Mostra o menu quando o botão é clicado */
+		.menu-open {
 			left: 0;
+		}
+
+		/* Estilo dos itens do menu */
+		.menu ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.menu li {
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.menu li:hover {
+			background-color: #ccc;
 		}
 	</style>
 </head>
 <body>
+	<!-- Botão para abrir/fechar o menu -->
+	<div class="button" onclick="toggleMenu()">Menu</div>
+
+	<!-- Menu -->
 	<div class="menu" id="menu">
-		<a href="#">Item 1</a>
-		<a href="#">Item 2</a>
-		<a href="#">Item 3</a>
-		<a href="#">Item 4</a>
-		<a href="#">Item 5</a>
+		<ul>
+			<li><a href="#">Item 1</a></li>
+			<li><a href="#">Item 2</a></li>
+			<li><a href="#">Item 3</a></li>
+			<li><a href="#">Item 4</a></li>
+			<li><a href="#">Item 5</a></li>
+		</ul>
 	</div>
-	<button class="btn-toggle" id="btn-toggle">Menu</button>
 
+	<!-- Conteúdo da página -->
+	<div style="padding: 50px;">
+		<h1>Conteúdo da Página</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor odio id ultrices rutrum. Fusce vulputate euismod nulla, eu tristique tortor auctor in. Suspendisse eleifend commodo massa, sit amet fringilla velit commodo eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse nec facilisis diam. Nunc laoreet ex euismod, dapibus felis ac, pellentesque sapien. Sed nec nibh eget lacus tristique vehicula. Vivamus ut est sit amet ante faucibus gravida id ac justo. Nunc ultrices velit nec mi efficitur, nec tristique nisi suscipit. Suspendisse malesuada bibendum diam, sit amet luctus turpis euismod quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+	</div>
+
+	<!-- Script para abrir/fechar o menu -->
 	<script>
-		const menu = document.getElementById('menu');
-		const btnToggle = document.getElementById('btn-toggle');
-
-		btnToggle.addEventListener('click', () => {
-			menu.classList.toggle('show-menu');
-		});
-	</script>
-</body>
-</html>
+		function toggleMenu() {
+			var menu = document.getElementById("menu");
+			if (menu.classList.contains("menu-open

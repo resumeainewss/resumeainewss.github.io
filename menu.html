@@ -2,38 +2,40 @@
 <html>
 <head>
 	<title>Menu Vertical</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		body {
 			margin: 0;
 			padding: 0;
 			font-family: Arial, sans-serif;
 		}
-    	/* Estilo do botão */
-	.button {
-		position: fixed;
-		top: 10px;
-		right: 10px;
-		background-color: #333;
-		color: #fff;
-		padding: 10px;
-		border-radius: 5px;
-		cursor: pointer;
-	}
-
-	/* Estilo do menu */
+		/* Estilo do botão */
+		.button {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+			z-index: 1;
+		}
+    	/* Estilo do menu */
 	.menu {
 		position: fixed;
 		top: 0;
-		left: -250px; /* Esconde o menu */
+		left: 0; /* Esconde o menu */
 		width: 250px;
 		height: 100%;
 		background-color: #eee;
 		transition: all 0.3s ease-in-out;
+		z-index: 1;
 	}
 
 	/* Mostra o menu quando o botão é clicado */
 	.menu-open {
-		left: 0;
+		left: -250px;
 	}
 
 	/* Estilo dos itens do menu */
@@ -51,219 +53,93 @@
 	.menu li:hover {
 		background-color: #ccc;
 	}
+
+	/* Estilo do conteúdo da página */
+	.content {
+		padding: 50px;
+		margin-top: 50px;
+		margin-right: 250px;
+	}
+
+	@media screen and (max-width: 768px) {
+		/* Ajusta o menu para dispositivos móveis */
+		.menu {
+			left: -250px;
+			width: 100%;
+			height: auto;
+		}
+
+		.menu-open {
+			left: 0;
+		}
+
+		.content {
+			margin-right: 0;
+		}
+	}
 </style>
 </head>
 <body>
 	<!-- Botão para abrir/fechar o menu -->
 	<div class="button" onclick="toggleMenu()">Menu</div>
-  <!-- Menu -->
-<div class="menu" id="menu">
-	<ul>
-		<li><a href="#">Item 1</a></li>
-		<li><a href="#">Item 2</a></li>
-		<li><a href="#">Item 3</a></li>
-		<li><a href="#">Item 4</a></li>
-		<li><a href="#">Item 5</a></li>
-	</ul>
-</div>
-
-<!-- Conteúdo da página -->
-<div style="padding: 50px;">
-	<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResumeAI</title>
-    <!-- Biblioteca Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Biblioteca FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-		body {
-		  margin: 0;
-		  padding: 0;
-		  height: 100%;
-		  background-color: #f9f9f9;
-		  color: #333;
-		  font-family: 'Roboto', sans-serif;
-		}
-		
-		header {
-		  position: fixed;
-		  top: 0;
-		  left: 0;
-		  right: 0;
-		  background-color: #008080;
-		  text-align: center;
-		  padding: 10px;
-		}
-		
-		h1 {
-		  margin: 0;
-		  font-size: 36px;
-		  font-weight: 600;
-		  color: #fff;
-		}
-		
-		.welcome {
-		  text-align: center;
-		  padding: 100px 20px 50px 20px;
-		  color: #000000;
-		  border: 10px solid #008080;
-		}
-		
-		button {
-		  display: block;
-		  margin: 20px auto;
-		  padding: 10px 0;
-		  border: none;
-		  background-color: #008080;
-		  color: #fff;
-		  font-size: 24px;
-		  font-weight: 500;
-		  border-radius: 5px;
-		  cursor: pointer;
-		  width: 100%;
-		  max-width: 400px;
-		  transition: background-color 0.2s ease-in-out;
-		}
-		button:hover {
-		  background-color: #006565;
-		}
-		
-		.jumbotron {
-		  background-color: #f9f9f9;
-		  padding: 100px 20px 50px 20px;
-		  border-radius: 5px;
-		  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-		  margin-top: 20px;
-		  border: 10px solid #008080;
-		}
-		
-		.jumbotron h1 {
-		  font-size: 42px;
-		  font-weight: 600;
-		  color: #008080;
-		  text-align: center;
-		}
-		
-		.jumbotron hr {
-		  width: 60px;
-		  border-top: 3px solid #008080;
-		  margin: 30px auto;
-		}
-		
-		.jumbotron p {
-		  font-size: 18px;
-		  line-height: 1.5;
-		  margin-bottom: 20px;
-		  text-align: justify;
-		}
-		
-		.jumbotron p:last{
-		margin-bottom: 0;
-		}
-			.skills {
-	  background-color: #f9f9f9;
-	  padding: 50px;
-	  border-radius: 5px;
-	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-	  margin-top: 50px;
-	}
-	
-	.skills h2 {
-	  font-size: 36px;
-	  font-weight: 600;
-	  color: #008080;
-	  margin-bottom: 30px;
-	}
-	
-	.skill-list {
-	  display: flex;
-	  flex-wrap: wrap;
-	  justify-content: space-between;
-	  margin-top: 30px;
-	}
-	
-	.skill {
-	  background-color: #fff;
-	  padding: 20px;
-	  border-radius: 5px;
-	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-	  width: calc(33.33% - 10px);
-	  margin-bottom: 20px;
-	}
-	
-	.skill h3 {
-	  font-size: 24px;
-	  font-weight: 500;
-	  color: #008080;
-	  margin-bottom: 10px;
-	}
-	
-	.skill p {
-	  font-size: 16px;
-	  line-height: 1.5;
-	  margin-bottom: 0;
-	}
-	
-	@media (max-width: 768px) {
-	  .jumbotron {
-	    margin-top: 100px;
-	  }
-	  
-	  .skill {
-	    width: calc(50% - 10px);
-	  }
-	}
-</style>
-  </head>
+	<!-- Menu -->
+	<div class="menu" id="menu">
+		<ul>
+			<li><a href="#item1" onclick="toggleMenu()">Item 1</a></li>
+			<li><a href="#item2" onclick="toggleMenu()">Item 2</a></li>
+			<li><a href="#item3" onclick="toggleMenu()">Item 3</a></li>
+			<li><a href="#item4" onclick="toggleMenu()">Item 4</a></li>
+			<li><a href="#item5" onclick="toggleMenu()">Item 5</a></li>
+		</ul>
+	</div>
+</head>
+<body>
+	<!-- Botão para abrir/fechar o menu -->
+	<div class="button" onclick="toggleMenu()">Menu</div>
+	<!-- Menu -->
+	<div class="menu" id="menu">
+		<ul>
+			<li><a href="#item1" onclick="toggleMenu()">Item 1</a></li>
+			<li><a href="#item2" onclick="toggleMenu()">Item 2</a></li>
+			<li><a href="#item3" onclick="toggleMenu()">Item 3</a></li>
+			<li><a href="#item4" onclick="toggleMenu()">Item 4</a></li>
+			<li><a href="#item5" onclick="toggleMenu()">Item 5</a></li>
+		</ul>
+	</div>
   <body>
-    <header>
-      <h1>ResumeAI</h1>
-    </header>
-<div class="welcome">
-  <h2>Bem-vindo ao ResumeAI</h2>
-  <p>"ResumeAI: Aprenda mais, em menos tempo."</p>
-  <button>Começar</button>
-  </div>
-
-<div class="container">
-  <div class="jumbotron">
-    <h1>Quem somos</h1>
-    <hr>
-	<p>Bem-vindo ao canal ResumeAI, onde você encontrará resumos confiáveis e ágeis de notícias de política, economia e mercado financeiro. Nosso objetivo é fornecer informações relevantes e atualizadas de forma prática e objetiva para um público-alvo composto por pessoas interessadas nessas áreas, incluindo profissionais do mercado financeiro, estudantes e pesquisadores. Mas não paramos por aí! Também oferecemos cursos e treinamentos especializados em política e economia, ministrados por nossos profissionais especializados e convidados renomados. Acreditamos que a educação é um complemento essencial para a compreensão das notícias e para o desenvolvimento profissional e pessoal de nosso público. Com uma equipe dedicada e uma estratégia de conteúdo bem definida, o canal ResumeAI está comprometido em ser uma fonte confiável e completa de informações e aprendizado para seus seguidores. Junte-se a nós e fique à frente dos acontecimentos do mundo!</p>
-  </div>
-</div>
-<footer class="text-center py-3">
-  <p>Copyright © 2023 ResumeAI</p>
-  <a href="https://www.youtube.com/channel/UCFJHrs7_MXaTzcT12T6XGYA"><img src="https://img.icons8.com/fluent/48/000000/youtube-play.png"/></a>
-  <a href="https://www.instagram.com/news.resumeai/"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
-  
-</footer>
-<!-- Biblioteca JQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-/1XEn65rQVu2szHP3r1+zFoBnYYbIuQ7i6sDhHP9L9O+5Ka8a" crossorigin="anonymous"></script>
-<!-- Biblioteca Popper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<!-- Biblioteca Bootstrap -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!-- Biblioteca FontAwesome -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-nkwFhOGW1QbOw+GZmTJfAmTxbWgO9XpT+CoR/svN8YIXJJB7it+1NlUpPoAWvz8OW0t+fn9tIBFyj4LO4imlvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-</html>
-</div>
-
-<!-- Script para abrir/fechar o menu -->
-<script>
-	function toggleMenu() {
-		var menu = document.getElementById("menu");
-		if (menu.classList.contains("menu-open")) {
-    menu.classList.remove("menu-open");
-  } else {
-    menu.classList.add("menu-open");
-  }
-	}
-</script>
+	<!-- Botão para abrir/fechar o menu -->
+	<div class="button" onclick="toggleMenu()">Menu</div>
+	<!-- Menu -->
+	<div class="menu" id="menu">
+		<ul>
+			<li><a href="#item1" onclick="toggleMenu()">Item 1</a></li>
+			<li><a href="#item2" onclick="toggleMenu()">Item 2</a></li>
+			<li><a href="#item3" onclick="toggleMenu()">Item 3</a></li>
+			<li><a href="#item4" onclick="toggleMenu()">Item 4</a></li>
+			<li><a href="#item5" onclick="toggleMenu()">Item 5</a></li>
+		</ul>
+	</div>
+	<!-- Conteúdo da página -->
+	<div class="content">
+		<h1>Bem-vindo ao meu site!</h1>
+		<p>Este é um exemplo de menu vertical responsivo com JavaScript puro.</p>
+		<h2 id="item1">Item 1</h2>
+		<p>Conteúdo do item 1.</p>
+		<h2 id="item2">Item 2</h2>
+		<p>Conteúdo do item 2.</p>
+		<h2 id="item3">Item 3</h2>
+		<p>Conteúdo do item 3.</p>
+		<h2 id="item4">Item 4</h2>
+		<p>Conteúdo do item 4.</p>
+		<h2 id="item5">Item 5</h2>
+		<p>Conteúdo do item 5.</p>
+	</div>
+	<!-- Script para controlar o menu -->
+	<script>
+		function toggleMenu() {
+			var menu = document.getElementById("menu");
+			menu.classList.toggle("menu-open");
+		}
+	</script>
 </body>
 </html>

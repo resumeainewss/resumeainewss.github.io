@@ -70,30 +70,6 @@
       });
     });
   </script>
-  <script>
-    $(document).ready(function () {
-      $("#page1").load("home.html");
-      // seleciona todos os links do menu
-      var links = $("nav a");
-
-      // adiciona um event listener para cada link do menu
-      links.click(function () {
-        // chama a função scrollToTop
-        scrollToTop();
-
-        function scrollToTop() {
-          $('html, body').animate({
-            scrollTop: 0
-          }, 800, function () {
-            // Adiciona o código aqui
-            var url = window.location.href;
-            var currentPage = url.substring(url.lastIndexOf('/') + 1);
-            $("#page1").load(currentPage + " #page1 > *");
-          });
-        }
-      });
-    });
-  </script>
   <style>
     /* estilo do botão de abrir o menu */
     #menu-btn {
@@ -256,7 +232,30 @@
     });
   </script>
   <!-- Carregamento de Paginas -->
-
+  <script>
+    $(document).ready(function () {
+      // Armazena o conteúdo da página inicial em uma variável
+      var homeContent = "";
+      $.get("home.html", function(data) {
+        homeContent = data;
+        $("#page1").html(homeContent);
+      });
+    
+      // Evento de clique do menu
+      $(".menu-item").click(function () {
+        var page = $(this).attr("data-page");
+        if (page === "home") {
+          // Se a página selecionada for a página inicial, exibe o conteúdo armazenado na variável
+          $("#page1").html(homeContent);
+        } else {
+          // Carrega o conteúdo da página selecionada usando a função $.get
+          $.get(page + ".html", function (data) {
+            $("#page1").html(data);
+          });
+        }
+      });
+    });
+      </script>
 </body>
 
 </html>

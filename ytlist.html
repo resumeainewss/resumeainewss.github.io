@@ -76,58 +76,10 @@
                         type: 'video',
                         order: 'date',
                         maxResults: 10,
-                        pageToken: nextPageToken,
                     });
 
-                    // executa a solicitação e processa a resposta
-                    request.execute(function (response) {
-                        var items = response.items;
-                        nextPageToken = response.nextPageToken;
-                        var table = $('<table>');
-                        var tr = $('<tr>');
-                        tr.append('<th>Thumbnail</th>');
-                        tr.append('<th>Title</th>');
-                        tr.append('<th><i class="emoji far fa-clock"></i>Published Date</th>');
-                        table.append(tr); // Adiciona as células do cabeçalho à linha e, em seguida
-
-                        for (var i = 0; i < items.length; i++) {
-                            var videoId = items[i].id.videoId;
-                            var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
-                            var thumbnailUrl = items[i].snippet.thumbnails.medium.url;
-                            var title = items[i].snippet.title;
-                            var publishedDate = items[i].snippet.publishedAt;
-
-                            var tr = $('<tr>');
-                            var tdThumbnail = $('<td>');
-                            var tdTitle = $('<td>');
-                            var tdPublishedDate = $('<td>');
-
-                            var a = $('<a>').attr('href', videoUrl).attr('target', '_blank');
-                            var img = $('<img>').attr('src', thumbnailUrl);
-                            a.append(img);
-                            tdThumbnail.append(a);
-
-                            tdTitle.text(title);
-
-                            var date = new Date(publishedDate);
-                            var options = { year: 'numeric', month: 'short', day: 'numeric' };
-                            tdPublishedDate.text(date.toLocaleDateString('en-US', options));
-
-                            tr.append(tdThumbnail);
-                            tr.append(tdTitle);
-                            tr.append(tdPublishedDate);
-
-                            table.append(tr); // Adiciona a linha à tabela
-                        }
-
-                        $('#videosList').append(table); // Adiciona a tabela à div de listagem de vídeos
-
-                        if (nextPageToken) {
-                            $('#loadMore').show();
-                        } else {
-                            $('#loadMore').hide();
-                        }
-                    });
+                 
+                
                 });
             });
         });

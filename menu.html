@@ -24,9 +24,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script>
-    $("#page1").load("home.html");
-  </script>  
      <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/06b29424af.js" crossorigin="anonymous"></script>
   <!-- Script para controlar o menu -->
@@ -72,6 +69,19 @@
         }
       });
     });
+  </script>
+  <script>
+    $(document).ready(function() {
+    $("#page1").load("home.html");
+    // seleciona todos os links do menu
+    var links = $("nav a");
+  
+    // adiciona um event listener para cada link do menu
+    links.click(function() {
+      // chama a função scrollToTop
+      scrollToTop();
+    });
+  });
   </script>
   <style>
     /* estilo do botão de abrir o menu */
@@ -232,19 +242,6 @@
   });
 </script>
   <!-- Carregamento de Paginas -->
-<script>
-  $(document).ready(function() {
-  // seleciona todos os links do menu
-  var links = $("nav a");
-
-  // adiciona um event listener para cada link do menu
-  links.click(function() {
-    $("#page1").load("home.html");
-    // chama a função scrollToTop
-    scrollToTop();
-  });
-});
-</script>
 
   </body>
 

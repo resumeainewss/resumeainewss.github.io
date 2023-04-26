@@ -115,22 +115,21 @@
         }
 
         function onClientLoad() {
-            gapi.client.load('youtube', 'v3', function () {
-                loadVideos();  </script>
-</body>
-});
+    gapi.client.load('youtube', 'v3', function () {
+        loadVideos();  
+    });
 }
 
 $('#loadMore').hide();
 
 $('#loadMore').on('click', function () {
-loadMoreVideos();
+    loadMoreVideos();
 });
 
 $(function () {
-$.getScript('config.js', function () {
-gapi.load('client', onClientLoad);
-});
+    $.getScript('config.js', function () {
+        gapi.load('client', onClientLoad);
+    });
 });
 </script>
 </body>

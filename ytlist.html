@@ -2,8 +2,14 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Notícias</title>
+    <title>ResumeAI</title>
+    <!-- Biblioteca Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Biblioteca FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         table {
             border-collapse: collapse;
@@ -40,6 +46,11 @@
         button:hover {
             background-color: #555;
         }
+
+        .emoji {
+            font-size: 20px;
+            margin-right: 5px;
+        }
     </style>
 </head>
 
@@ -51,7 +62,7 @@
     <script>
         gapi.load('client', function () {
             gapi.client.init({
-                apiKey: 'YOUR_API_KEY',
+                apiKey: 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4',
             }).then(function () {
                 var nextPageToken = ''; // Definindo a variável nextPageToken como uma string vazia
                 $('#loadMore').click(function () {
@@ -73,22 +84,22 @@
                         var tr = $('<tr>');
                         tr.append('<th>Thumbnail</th>');
                         tr.append('<th>Title</th>');
-                        tr.append('<th>Published Date</th>');
-                        table.append(tr);
+                        tr.append('<th><i class="emoji far fa-clock"></i>Published Date</th>');
+                        table.append(tr); // Adiciona as células do cabeçalho à linha e, em seguida, adiciona a linha à tabela
                         for (var i = 0; i < items.length; i++) {
                             var item = items[i];
-                            var thumbnailUrl = item.snippet.thumbnails.medium.url;
-                            var videoTitle = item.snippet.title;
                             var videoId = item.id.videoId;
-                            var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
-                            var publishedDate = new Date(item.snippet.publishedAt).toLocaleDateString();
+                            var thumbnail = item.snippet.thumbnails.medium.url;
+                            var title = item.snippet.title;
+                            var publishedDate = new Date(item.snippet.publishedAt).toLocaleDateString('pt-BR'); // Convertendo a data de publicação para o formato brasileiro
                             var tr = $('<tr>');
-                            tr.append('<td><a href="' + videoUrl + '"><img src="' + thumbnailUrl + '"></a></td>');
-                            tr.append('<td><a href="' + videoUrl + '">' + videoTitle + '</a></td>');
+                            tr.append('<td><a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank"><img src="' + thumbnail + '"></a></td>');
+                            tr.append('<td><a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank">' + title + '</a></td>');
                             tr.append('<td>' + publishedDate + '</td>');
-                            table.append(tr);
+                            table.append(tr); // Adiciona as células à linha e, em seguida, adiciona a linha à tabela
                         }
-                        $('#videosList').append(table);
+
+                        $('#videosList').append(table); // Adiciona a tabela à div videosList
                     });
                 });
             });

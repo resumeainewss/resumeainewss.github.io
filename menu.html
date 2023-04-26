@@ -230,22 +230,18 @@
 
   </div>
   <script>
-    $(document).ready(function () {
-      // esconde todos os DIVs do conteúdo, exceto os dois primeiros
-      $("#content div").slice(1).hide();
-    });
-  </script>
-  <!-- Carregamento de Paginas -->
-  <script>
     function loadPage(page) {
       $("#page1").fadeOut("slow", function () {
         $(this).load(page, function () {
           $(this).fadeIn("slow");
           // Define a altura do contêiner #page1 como a altura da janela do navegador
           $(this).height($(window).height());
+          // Volta ao início da página
+          $("html, body").scrollTop(0);
         });
       });
     }
+  
     $(document).ready(function () {
       // Armazena o conteúdo da página inicial em uma variável
       var homeContent = "";
@@ -253,7 +249,7 @@
         homeContent = data;
         $("#page1").html(homeContent);
       });
-
+  
       // Evento de clique do menu
       $(".menu-item").click(function () {
         $(this).height($(window).height());
@@ -272,11 +268,14 @@
           // Carrega o conteúdo da página selecionada usando a função $.get
           $.get(page + ".html", function (data) {
             $("#page1").html(data);
+            // Volta ao início da página
+            $("html, body").scrollTop(0);
           });
         }
       });
     });
   </script>
+  
 </body>
 
 </html>

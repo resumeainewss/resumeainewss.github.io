@@ -156,44 +156,8 @@
 
 <div class="welcome">
   <div class="jumbotron">
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Listagem de Vídeos do Canal do YouTube</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script>
-          // Insira sua chave de API do YouTube aqui
-          var apiKey = "AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4";
-          
-          // Insira o ID do canal do YouTube aqui
-          var channelId = "UCkQEoCoT8WtYcNJO3oBHreg";
-          
-          // URL da API do YouTube para obter os vídeos do canal
-          var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + channelId + "&maxResults=10&order=date&type=video&key=" + apiKey;
-          
-          $(document).ready(function() {
-            $.getJSON(url, function(data) {
-              var items = data.items;
-              var output = "";
-              
-              // Cria uma lista de vídeos com seus títulos e links
-              $.each(items, function(index, item) {
-                var videoId = item.id.videoId;
-                var videoTitle = item.snippet.title;
-                output += '<li><a href="https://www.youtube.com/watch?v=' + videoId + '">' + videoTitle + '</a></li>';
-              });
-              
-              // Adiciona a lista de vídeos ao elemento com o ID "videos"
-              $('#videos').html(output);
-            });
-          });
-        </script>
-      </head>
-      <body>
-        <h1>Listagem de Vídeos do Canal do YouTube</h1>
-        <ul id="videos"></ul>
-      </body>
-    </html>
+    <iframe src="outra_pagina.html" width="100%" height="100%"></iframe>
+
   </div>
 </div>
 <footer class="text-center py-3">

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notícias</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		th, td {
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #f2f2f2;
+			font-weight: normal;
+		}
+		a {
+			color: #333;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #333;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #555;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var nextPageToken = '';
+			$('#loadMore').click(function() {
+				$.ajax({
+					url: 'ytcheck.php',
+					data:{
+channelId: 'UCkQEoCoT8WtYcNJO3oBHreg',
+apiKey: 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4',
+pageToken: nextPageToken,
+},
+success: function(data) {
+var result = JSON.parse(data);
+var items = result.items;
+nextPageToken = result.nextPageToken;
+var table = $('<table>');
+var tr = $('<tr>');
+tr.append('<th>Thumbnail</th>');
+tr.append('<th>Title</th>');
+tr.append('<th>Published Date</th>');
+table.append(tr);
+for (var i = 0; i < items.length; i++) {
+var item = items[i];
+var thumbnailUrl = item.snippet.thumbnails.medium.url;
+var videoTitle = item.snippet.title;
+var videoId = item.id.videoId;
+var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
+var publishedDate = new Date(item.snippet.publishedAt).toLocaleDateString();
+var tr = $('<tr>');
+tr.append('<td><a href="' + videoUrl + '"><img src="' + thumbnailUrl + '"></a></td>');
+tr.append('<td><a href="' + videoUrl + '">' + videoTitle + '</a></td>');
+tr.append('<td>' + publishedDate + '</td>');
+table.append(tr);
+}
+$('#videosList').append(table);
+if (!nextPageToken) {
+$('#loadMore').hide();
+}
+}
+});
+});
+});
+</script>
+
+</head>
+<body>
+	<div id="videosList"></div>
+	<button id="loadMore">Load More</button>
+</body>
+</html>

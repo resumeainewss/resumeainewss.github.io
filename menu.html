@@ -233,6 +233,15 @@
   </script>
   <!-- Carregamento de Paginas -->
   <script>
+    function loadPage(page) {
+  $("#page1").fadeOut("slow", function() {
+    $(this).load(page, function() {
+      $(this).fadeIn("slow");
+      // Define a altura do contêiner #page1 como a altura da janela do navegador
+      $(this).height($(window).height());
+    });
+  });
+}
     $(document).ready(function () {
       // Armazena o conteúdo da página inicial em uma variável
       var homeContent = "";

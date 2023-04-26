@@ -98,7 +98,7 @@
         }
 
         function loadVideos() {
-            const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+            const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4}&channelId=${CUCkQEoCoT8WtYcNJO3oBHreg}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
             $.get(apiUrl, function (data) {
                 const videos = data.items;
                 const table = $('<table>');
@@ -110,26 +110,6 @@
                 $('#videosList').append(table);
                 if (data.nextPageToken) {
                     $('#loadMore').show().attr('data-token', data.nextPageToken);
-                }
-            });
-        }
-
-        function loadMoreVideos() {
-            const nextPageToken = $('#loadMore').attr('data-token');
-            const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4}&channelId=${UCkQEoCoT8WtYcNJO3oBHreg}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}&pageToken=${nextPageToken}`;
-            $.get(apiUrl, function (data) {
-                const videos = data.items;
-                const table = $('<table>');
-                for (let i = 0; i < videos.length; i++) {
-                    const video = videos[i];
-                    const tr = createTableRow(video);
-                    table.append(tr);
-                }
-                $('#videosList table:last-child').after(table);
-                if (data.nextPageToken) {
-                    $('#loadMore').attr('data-token', data.nextPageToken);
-                } else {
-                    $('#loadMore').hide();
                 }
             });
         }

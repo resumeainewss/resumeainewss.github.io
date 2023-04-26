@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI</title>
+    <!-- Biblioteca Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Biblioteca FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+		body {
+		  margin: 0;
+		  padding: 0;
+		  height: 100%;
+		  background-color: #f9f9f9;
+		  color: #333;
+		  font-family: 'Roboto', sans-serif;
+		}
+		
+		header {
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  background-color: #008080;
+		  text-align: center;
+		  padding: 10px;
+		}
+		
+		h1 {
+		  margin: 0;
+		  font-size: 36px;
+		  font-weight: 600;
+		  color: #fff;
+		}
+		
+		.welcome {
+		  text-align: center;
+		  padding: 100px 20px 50px 20px;
+		  color: #000000;
+		  border: 10px solid #008080;
+		}
+		
+		#b1 {
+		  display: block;
+		  margin: 20px auto;
+		  padding: 10px 0;
+		  border: none;
+		  background-color: #008080;
+		  color: #fff;
+		  font-size: 24px;
+		  font-weight: 500;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  width: 100%;
+		  max-width: 400px;
+		  transition: background-color 0.2s ease-in-out;
+		}
+		#b1:hover {
+		  background-color: #006565;
+		}
+		
+		.jumbotron {
+		  background-color: #f9f9f9;
+		  padding: 10px;
+		  border-radius: 5px;
+		  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+		  margin-top: 10px;
+		  border: 10px solid #008080;
+		}
+		
+		.jumbotron h1 {
+		  font-size: 42px;
+		  font-weight: 600;
+		  color: #008080;
+		  text-align: center;
+		}
+		
+		.jumbotron hr {
+		  width: 50%;
+		  border-top: 3px solid #008080;
+		  margin: 30px auto;
+		}
+		
+		.jumbotron p {
+		  font-size: 16px;
+		  line-height: 1.5;
+		  margin-bottom: 20px;
+		  text-align: justify;
+		}
+		
+		.jumbotron p:last{
+		margin-bottom: 0;
+		}
+			.skills {
+	  background-color: #f9f9f9;
+	  padding: 50px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  margin-top: 50px;
+	}
+	
+	.skills h2 {
+	  font-size: 36px;
+	  font-weight: 600;
+	  color: #008080;
+	  margin-bottom: 30px;
+	}
+	
+	.skill-list {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	  margin-top: 30px;
+	}
+	
+	.skill {
+	  background-color: #fff;
+	  padding: 20px;
+	  border-radius: 5px;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+	  width: calc(33.33% - 10px);
+	  margin-bottom: 20px;
+	}
+	
+	.skill h3 {
+	  font-size: 24px;
+	  font-weight: 500;
+	  color: #008080;
+	  margin-bottom: 10px;
+	}
+	
+	.skill p {
+	  font-size: 16px;
+	  line-height: 1.5;
+	  margin-bottom: 0;
+	}
+	
+	@media (max-width: 768px) {
+	  
+	  .skill {
+	    width: calc(50% - 10px);
+	  }
+	}
+</style>
+  </head>
+  <body>
+    <header>
+      <h1>ResumeAI</h1>
+    </header>
+<div class="welcome">
+  <h2>Bem-vindo ao ResumeAI</h2>
+  <p>"ResumeAI: Aprenda mais, em menos tempo."</p>
+  </div>
+
+<div class="welcome">
+  <div class="jumbotron">
+    <!DOCTYPE html>
+<html>
+<head>
+	<title>Vídeos do YouTube</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Vídeos do YouTube</h1>
+	<ul id="videos"></ul>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg";
+			$.get(url, function(data) {
+				$(data).find("entry").each(function() {
+					var video = $(this);
+					var title = video.find("title").text();
+					var link = video.find("link").attr("href");
+					var listItem = "<li><a href='" + link + "'>" + title + "</a></li>";
+					$("#videos").append(listItem);
+				});
+			});
+		});
+	</script>
+</body>
+</html>
+  </div>
+</div>
+<footer class="text-center py-3">
+  <p>Copyright © 2023 ResumeAI</p>
+  <a href="https://www.youtube.com/@news.resumeai"><img src="https://img.icons8.com/fluent/48/000000/youtube-play.png"/></a>
+  <a href="https://www.instagram.com/news.resumeai/"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
+  
+</footer>
+<!-- Biblioteca JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-/1XEn65rQVu2szHP3r1+zFoBnYYbIuQ7i6sDhHP9L9O+5Ka8a" crossorigin="anonymous"></script>
+<!-- Biblioteca Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<!-- Biblioteca Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- Biblioteca FontAwesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-nkwFhOGW1QbOw+GZmTJfAmTxbWgO9XpT+CoR/svN8YIXJJB7it+1NlUpPoAWvz8OW0t+fn9tIBFyj4LO4imlvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+
+<!--Menu-->>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>INDEX</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSbNBJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/06b29424af.js" crossorigin="anonymous"></script>
+  <!-- Script para controlar o menu -->
+  <script>
+    $(document).ready(function () {
+      // esconde o menu ao carregar a página
+      $("#menu").css("left", "-100%");
+
+      // ao clicar no botão de abrir o menu
+      $("#menu-btn").click(function () {
+        $("#menu").css("left", "0");
+      });
+
+      // ao clicar no botão de fechar o menu
+      $("#close-btn").click(function () {
+        $("#menu").css("left", "-100%");
+      });
+
+      // ao clicar em um item do menu
+      $("#menu a").click(function () {
+        // remove a classe active de todos os itens do menu
+        $("#menu li").removeClass("active");
+        // adiciona a classe active no item clicado
+        $(this).parent().addClass("active");
+        // esconde todos os DIVs do conteúdo
+        $("#content div").hide();
+        // mostra o DIV correspondente ao item clicado
+        $($(this).data("target")).show();
+        // fecha o menu (somente se a tela for menor que 768px)
+        if ($(window).width() < 768) {
+          $("#menu").css("left", "-100%");
+        }
+      });
+      // ao redimensionar a tela
+      $(window).resize(function () {
+        // se a tela for maior ou igual a 768px, mostra o menu
+        if ($(window).width() >= 768) {
+          $("#menu").css("left", "0");
+        }
+        // se a tela for menor que 768px, esconde o menu
+        else {
+          $("#menu").css("left", "-100%");
+        }
+      });
+    });
+  </script>
+  <style>
+    /* estilo do botão de abrir o menu */
+    #menu-btn {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      padding: 19px;
+      background-color: #005050;
+      z-index: 9999;
+    }
+
+    /* estilo do menu */
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      /* inicia escondido */
+      width: 30%;
+      height: 100%;
+      background-color: #005050;
+      transition: left 0.3s ease-in-out;
+      z-index: 9998;
+    }
+
+    /* estilo dos itens do menu */
+    #menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+
+
+    }
+
+    #menu li {
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    #menu li a {
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      flex-grow: 1;
+    }
+
+    #menu li.active {
+      background-color: #007070;
+    }
+
+    /* estilo do botão de fechar o menu */
+    #close-btn {
+      cursor: pointer;
+      width: 100%;
+      background-color: #004040;
+      align-items: center;
+
+    }
+
+    /* esconde o menu quando a tela for maior que 768px */
+    @media (min-width: 768px) {
+      #menu {
+        left: 0;
+      }
+
+      #content {
+        margin-left: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- botão de abrir o menu -->
+  <button id="menu-btn" class="btn btn-secondary">
+    <i class="fas fa-bars"></i>
+  </button>
+  <!-- menu -->
+  <div id="menu">
+    <ul>
+      <li>
+        <button id="close-btn" class="btn btn-secondary">
+          <i class="fas fa-times"></i>
+        </button>
+      </li>
+      <li>MENU</li>
+      <li></li><a href="home.html" data-target="#page1">Inicio</a></li>
+      <li class="active"><a href="noticias.html" data-target="#page2">Notícias</a></li>
+      <li><a href="cursos.html" data-target="#page3">Cursos</a></li>
+      <li><a href="analises.html" data-target="#page4">Análises</a></li>
+      <li><a href="parceiros.html" data-target="#page5">Parceiros</a></li>
+    </ul>
+
+  </div>
+
+</body>
+</html>

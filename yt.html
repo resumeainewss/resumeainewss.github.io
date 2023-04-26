@@ -35,31 +35,31 @@
       var MAX_RESULTS = 10;
       var nextPageToken = '';
 
-      function getVideos() {
-        $.get(
-          'https://www.googleapis.com/youtube/v3/search', 
-          {
-            part: 'snippet',
-            channelId: CHANNEL_ID,
-            key: API_KEY,
-            maxResults: MAX_RESULTS,
-            pageToken: nextPageToken
-          },
-          function(data) {
-            var videos = data.items;
-            nextPageToken = data.nextPageToken;
-            var tbody = $('#videos-table');
-            for (var i = 0; i < videos.length; i++) {
-              var video = videos[i];
-              var title = video.snippet.title;
-              var thumbnail = video.snippet.thumbnails.medium.url;
-              var publishedAt = new Date(video.snippet.publishedAt).toLocaleDateString();
-              var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedAt + '</td></tr>';
-              tbody.append(row);
-            }
-          }
-        );
+    function getVideos() {
+  $.get(
+    'https://www.googleapis.com/youtube/v3/search', 
+    {
+      part: 'snippet',
+      channelId: CHANNEL_ID,
+      key: API_KEY,
+      maxResults: MAX_RESULTS,
+      pageToken: nextPageToken
+    },
+    function(data) {
+      var videos = data.items;
+      nextPageToken = data.nextPageToken; // Atualiza o valor do nextPageToken
+      var tbody = $('#videos-table');
+      for (var i = 0; i < videos.length; i++) {
+        var video = videos[i];
+        var title = video.snippet.title;
+        var thumbnail = video.snippet.thumbnails.medium.url;
+        var publishedAt = new Date(video.snippet.publishedAt).toLocaleString();
+        var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedAt + '</td></tr>';
+        tbody.append(row);
       }
+    }
+  );
+}
 
       $('#load-more').click(function() {
         getVideos();

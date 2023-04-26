@@ -63,10 +63,10 @@
 		
 		.jumbotron {
 		  background-color: #f9f9f9;
-		  padding: 100px 20px 50px 20px;
+		  padding: 50px 35px 50px 35px;
 		  border-radius: 5px;
 		  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-		  margin-top: 20px;
+		  margin-top: 10px;
 		  border: 10px solid #008080;
 		}
 		
@@ -179,5 +179,176 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- Biblioteca FontAwesome -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-nkwFhOGW1QbOw+GZmTJfAmTxbWgO9XpT+CoR/svN8YIXJJB7it+1NlUpPoAWvz8OW0t+fn9tIBFyj4LO4imlvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+
+<!--Menu-->>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>INDEX</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSbNBJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/06b29424af.js" crossorigin="anonymous"></script>
+  <!-- Script para controlar o menu -->
+  <script>
+    $(document).ready(function () {
+      // esconde o menu ao carregar a página
+      $("#menu").css("left", "-100%");
+
+      // ao clicar no botão de abrir o menu
+      $("#menu-btn").click(function () {
+        $("#menu").css("left", "0");
+      });
+
+      // ao clicar no botão de fechar o menu
+      $("#close-btn").click(function () {
+        $("#menu").css("left", "-100%");
+      });
+
+      // ao clicar em um item do menu
+      $("#menu a").click(function () {
+        // remove a classe active de todos os itens do menu
+        $("#menu li").removeClass("active");
+        // adiciona a classe active no item clicado
+        $(this).parent().addClass("active");
+        // esconde todos os DIVs do conteúdo
+        $("#content div").hide();
+        // mostra o DIV correspondente ao item clicado
+        $($(this).data("target")).show();
+        // fecha o menu (somente se a tela for menor que 768px)
+        if ($(window).width() < 768) {
+          $("#menu").css("left", "-100%");
+        }
+      });
+      // ao redimensionar a tela
+      $(window).resize(function () {
+        // se a tela for maior ou igual a 768px, mostra o menu
+        if ($(window).width() >= 768) {
+          $("#menu").css("left", "0");
+        }
+        // se a tela for menor que 768px, esconde o menu
+        else {
+          $("#menu").css("left", "-100%");
+        }
+      });
+    });
+  </script>
+  <style>
+    /* estilo do botão de abrir o menu */
+    #menu-btn {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      padding: 19px;
+      background-color: #005050;
+      z-index: 9999;
+    }
+
+    /* estilo do menu */
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      /* inicia escondido */
+      width: 30%;
+      height: 100%;
+      background-color: #005050;
+      transition: left 0.3s ease-in-out;
+      z-index: 9998;
+    }
+
+    /* estilo dos itens do menu */
+    #menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+
+
+    }
+
+    #menu li {
+      padding: 10px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    #menu li a {
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      flex-grow: 1;
+    }
+
+    #menu li.active {
+      background-color: #007070;
+    }
+
+    /* estilo do botão de fechar o menu */
+    #close-btn {
+      cursor: pointer;
+      width: 100%;
+      background-color: #004040;
+      align-items: center;
+
+    }
+
+    /* esconde o menu quando a tela for maior que 768px */
+    @media (min-width: 768px) {
+      #menu {
+        left: 0;
+      }
+
+      #content {
+        margin-left: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- botão de abrir o menu -->
+  <button id="menu-btn" class="btn btn-secondary">
+    <i class="fas fa-bars"></i>
+  </button>
+  <!-- menu -->
+  <div id="menu">
+    <ul>
+      <li>
+        <button id="close-btn" class="btn btn-secondary">
+          <i class="fas fa-times"></i>
+        </button>
+      </li>
+      <li>MENU</li>
+      <li class="active"><a href="home.html" data-target="#page1">Inicio</a></li>
+      <li><a href="noticias.html" data-target="#page2">Notícias 2</a></li>
+      <li><a href="cursos.html" data-target="#page3">Cursos</a></li>
+      <li><a href="analises.html" data-target="#page4">Análises</a></li>
+      <li><a href="parceiros.html" data-target="#page5">Parceiros</a></li>
+    </ul>
+
+  </div>
+
 </body>
 </html>

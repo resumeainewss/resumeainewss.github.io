@@ -1,83 +1,33 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Lista de vídeos do canal</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Feed RSS do Canal do YouTube</title>
 </head>
 <body>
-  <div class="container mt-5">
-    <h1 class="text-center">Notícias</h1>
-    <table class="table table-striped mt-4">
-      <thead>
-        <tr>
-          <th>Thumbnail</th>
-          <th>Título</th>
-          <th>Data/Hora</th>
-        </tr>
-      </thead>
-      <tbody id="videos-table">
-      </tbody>
-    </table>
-    <div class="text-center">
-      <button class="btn btn-primary" id="load-more">Ver Mais!</button>
-    </div>
-  </div>
-
-  <script>
-    $(document).ready(function() {
-      var API_KEY = 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4';
-      var CHANNEL_ID = 'UCkQEoCoT8WtYcNJO3oBHreg';
-      var MAX_RESULTS = 10;
-      var nextPageToken = null;
-      var loadedVideos = 0;
-
-      function getVideos() {
-        $.get(
-          'https://www.googleapis.com/youtube/v3/search', 
-          {
-            part: 'snippet',
-            channelId: CHANNEL_ID,
-            key: API_KEY,
-            maxResults: MAX_RESULTS,
-            pageToken: nextPageToken
-          },
-          function(data) {
-            var videos = data.items;
-            var totalResults = data.pageInfo.totalResults;
-            if (videos.length < MAX_RESULTS || loadedVideos + videos.length >= totalResults) {
-              $('#load-more').hide();
-            } else {
-              loadedVideos += videos.length;
-              nextPageToken = data.nextPageToken;
-            }
-            var tbody = $('#videos-table');
-            for (var i = 0; i < videos.length; i++) {
-              var video = videos[i];
-              var title = video.snippet.title;
-              var thumbnail = video.snippet.thumbnails.medium.url;
-              var publishedAt = new Date(video.snippet.publishedAt);
-              var publishedDate = publishedAt.toLocaleDateString();
-              var publishedTime = publishedAt.toLocaleTimeString();
-              var ideoId = video.id.videoId;
-              var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
-              var thumbnailHtml = '<a href="' + videoUrl + '"><img src="' + thumbnail + '" alt="' + title + '"></a>';
-               var titleHtml = '<a href="' + videoUrl + '">' + title + '</a>';
-              var dateHtml = publishedDate + ' ' + publishedTime;
-              var tr = '<tr><td>' + thumbnailHtml + '</td><td>' + titleHtml + '</td><td>' + dateHtml + '</td></tr>';
-          tbody.append(tr);
-        }
-      }
-    );
-  }
-
-  getVideos();
-
-  $('#load-more').click(function() {
-    getVideos();
-  });
-});
+    <h1>Feed RSS do Canal do YouTube</h1>
+    <ul>
+    <!-- Fazendo uma requisição AJAX para obter os dados do canal -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON('https://www.googleapis.com/youtube/v3/search?key=AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4&channelId=UCkQEoCoT8WtYcNJO3oBHregL&part=snippet,id&order=date&maxResults=20', function(data) {
+                var items = data.items;
+                // Para cada publicação, adiciona uma linha à tabela
+                $.each(items, function(index, item) {
+                    var title = item.snippet.title;
+                    var date = new Date(item.snippet.publishedAt);
+                    var hours = date.getHours();
+                    var minutes = "0" + date.getMinutes();
+                    var seconds = "0" + date.getSeconds();
+                    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                    var link = 'https://www.youtube.com/watch?v=' + item.id.videoId;
+                    var row = '<li><a href="' + link + '">' + title + '</a> (' + formattedTime + ' - ' + date.toLocaleDateString() + ')</li>';
+                    $('#feed').append(row);
+                });
+            });
+        });
+    </script>
+    <ul id="feed">
+    </ul>
+</body>
+</html>

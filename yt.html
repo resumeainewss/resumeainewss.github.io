@@ -1,141 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <title>ResumeAI</title>
-    <!-- Biblioteca Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Biblioteca FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-umt+C8WPhsH3ihFfln1A2DTgGLRniZSKzHvDpLrOzKfR9O84HmF1fbY4bgOoetP6oW/B6Iw3B46S1ixg2Ubnsg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: normal;
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-
-        .emoji {
-            font-size: 20px;
-            margin-right: 5px;
-        }
-    </style>
+  <title>Lista de vídeos do canal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-    <div id="videosList"></div>
-    <button id="loadMore">Ver Mais!</button>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-        const CHANNEL_ID = 'UCkQEoCoT8WtYcNJO3oBHreg';
-        const MAX_RESULTS = 10;
+  <div class="container mt-5">
+    <h1 class="text-center">Lista de vídeos do canal</h1>
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th>Thumbnail</th>
+          <th>Título</th>
+          <th>Data de publicação</th>
+        </tr>
+      </thead>
+      <tbody id="videos-table">
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button class="btn btn-primary" id="load-more">Ver mais</button>
+    </div>
+  </div>
 
-        function formatDate(date) {
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
-            return date.toLocaleDateString('en-US', options);
-        }
+  <script>
+    $(document).ready(function() {
+      var API_KEY = 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4';
+      var CHANNEL_ID = 'CUCkQEoCoT8WtYcNJO3oBHreg';
+      var MAX_RESULTS = 10;
+      var nextPageToken = '';
 
-        function createTableRow(video) {
-            const videoId = video.id.videoId;
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-            const thumbnailUrl = video.snippet.thumbnails.medium.url;
-            const title = video.snippet.title;
-            const publishedDate = new Date(video.snippet.publishedAt);
+      function getVideos() {
+        $.get(
+          'https://www.googleapis.com/youtube/v3/search', 
+          {
+            part: 'snippet',
+            channelId: CHANNEL_ID,
+            key: API_KEY,
+            maxResults: MAX_RESULTS,
+            pageToken: nextPageToken
+          },
+          function(data) {
+            var videos = data.items;
+            nextPageToken = data.nextPageToken;
+            var tbody = $('#videos-table');
+            for (var i = 0; i < videos.length; i++) {
+              var video = videos[i];
+              var title = video.snippet.title;
+              var thumbnail = video.snippet.thumbnails.medium.url;
+              var publishedAt = new Date(video.snippet.publishedAt).toLocaleDateString();
+              var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedAt + '</td></tr>';
+              tbody.append(row);
+            }
+          }
+        );
+      }
 
-            const tr = $('<tr>');
-            const tdThumbnail = $('<td>');
-            const tdTitle = $('<td>');
-            const tdPublishedDate = $('<td>');
-            const thumbnail = $('<img>').attr('src', thumbnailUrl);
-            tdThumbnail.append(thumbnail);
+      $('#load-more').click(function() {
+        getVideos();
+      });
 
-            const titleLink = $('<a>').attr('href', videoUrl).text(title);
-            tdTitle.append(titleLink);
-
-            const formattedDate = formatDate(publishedDate);
-            tdPublishedDate.text(formattedDate);
-
-            tr.append(tdThumbnail);
-            tr.append(tdTitle);
-            tr.append(tdPublishedDate);
-
-            return tr;
-        }
-
-        function loadVideos() {
-            const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4}&channelId=${CUCkQEoCoT8WtYcNJO3oBHreg}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
-            $.get(apiUrl, function (data) {
-                const videos = data.items;
-                const table = $('<table>');
-                for (let i = 0; i < videos.length; i++) {
-                    const video = videos[i];
-                    const tr = createTableRow(video);
-                    table.append(tr);
-                }
-                $('#videosList').append(table);
-                if (data.nextPageToken) {
-                    $('#loadMore').show().attr('data-token', data.nextPageToken);
-                }
-            });
-        }
-
-        function onClientLoad() {
-  gapi.client.load('youtube', 'v3', function () {
-      loadVideos();  
-  }); // adicionado um colchete de fechamento aqui
-}
-
-$('#loadMore').hide();
-
-$('#loadMore').on('click', function () {
-  loadMoreVideos();
-});
-
-$(function () {
-  $.getScript('config.js', function () {
-      gapi.load('client', onClientLoad);
-  });
-});
-$(function () {
-    $.getScript('config.js', function () {
-        gapi.load('client', onClientLoad);
+      getVideos();
     });
-});
-</script>
+  </script>
 </body>
 </html>

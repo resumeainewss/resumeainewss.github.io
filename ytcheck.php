@@ -1,7 +1,7 @@
 <?php
 
 // API key do YouTube Data v3
-$api_key = "SUA_API_KEY_AQUI";
+$api_key = "AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4";
 
 // ID do canal do YouTube
 $channel_id = "UCkQEoCoT8WtYcNJO3oBHreg";

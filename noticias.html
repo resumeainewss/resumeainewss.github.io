@@ -155,7 +155,29 @@
   </div>
 
 <div class="welcome">
-    <iframe src="ytlist.html" ></iframe>
+  
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Exibindo feed RSS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.feedek/1.0.1/jquery.feedEk.min.js"></script>
+  </head>
+  <body>
+    <div id="rss-feed"></div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#rss-feed').FeedEk({
+          FeedUrl: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg',
+          MaxCount: 10,
+          ShowDesc: true,
+          ShowPubDate: true
+        });
+      });
+    </script>
+  </body>
+  </html>
+  
   </div>
 </div>
 <footer class="text-center py-3">

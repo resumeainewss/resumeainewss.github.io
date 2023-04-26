@@ -161,29 +161,35 @@
   <head>
     <title>Exibindo feed RSS</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("feeds", "1");
+      function initialize() {
+        var feed = new google.feeds.Feed("https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg");
+        feed.setNumEntries(10);
+        feed.load(function(result) {
+          if (!result.error) {
+            var container = $('#rss-feed');
+            container.empty();
+            for (var i = 0; i < result.feed.entries.length; i++) {
+              var entry = result.feed.entries[i];
+              var html = '<div>';
+              html += '<h2><a href="' + entry.link + '">' + entry.title + '</a></h2>';
+              html += '<p>' + entry.contentSnippet + '</p>';
+              html += '</div>';
+              container.append(html);
+            }
+          }
+        });
+      }
+      google.setOnLoadCallback(initialize);
+    </script>
   </head>
   <body>
     <div id="rss-feed"></div>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var parser = new RSSParser();
-        parser.parseURL('https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg', function(err, feed) {
-          if (err) throw err;
-          var html = '';
-          for (var i = 0; i < feed.items.length; i++) {
-            var item = feed.items[i];
-            html += '<div>';
-            html += '<h2><a href="' + item.link + '">' + item.title + '</a></h2>';
-            html += '<p>' + item.contentSnippet + '</p>';
-            html += '</div>';
-          }
-          $('#rss-feed').html(html);
-        });
-      });
-    </script>
   </body>
   </html>
+  
   
   </div>
 </div>

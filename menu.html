@@ -230,52 +230,9 @@
 
   </div>
   <script>
-    function loadPage(page) {
-      $("page1").fadeOut("slow", function () {
-        $(this).load(page, function () {
-          $(this).fadeIn("slow");
-          // Define a altura do contêiner #page1 como a altura da janela do navegador
-          $(this).height($(window).height());
-          // Volta ao início da página
-          $("html, body").scrollTop(0);
-        });
-      });
-    }
-  
-    $(document).ready(function () {
-      // Armazena o conteúdo da página inicial em uma variável
-      var homeContent = "";
-      $.get("home.html", function (data) {
-        homeContent = data;
-        $("page1").html(homeContent);
-      });
-  
-      // Evento de clique do menu
-      $(".menu-item").click(function () {
-        $(this).height($(window).height());
-        centerContent();
-        function centerContent() {
-          var contentHeight = $("#content").outerHeight();
-          var windowHeight = $(window).height();
-          var marginTop = (windowHeight - contentHeight) / 2;
-          $("#content").css("margin-top", marginTop + "px");
-        }
-        var page = $(this).attr("data-page");
-        if (page === "home") {
-          // Se a página selecionada for a página inicial, exibe o conteúdo armazenado na variável
-          $("page1").html(homeContent);
-        } else {
-          // Carrega o conteúdo da página selecionada usando a função $.get
-          $.get(page + ".html", function (data) {
-            $("page1").html(data);
-            // Volta ao início da página
-            $("html, body").scrollTop(0);
-          });
-        }
-      });
-    });
-  </script>
-  
+$(document).ready(function() {
+  $("page1").load("home.html");
+});
+</script>
 </body>
-
 </html>

@@ -43,7 +43,8 @@
             channelId: CHANNEL_ID,
             key: API_KEY,
             maxResults: MAX_RESULTS,
-            pageToken: nextPageToken || ''
+            pageToken: nextPageToken ? nextPageToken : '' // operador ternário para verificar se nextPageToken é nulo
+
           },
           function(data) {
             var videos = data.items;

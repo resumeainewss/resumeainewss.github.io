@@ -157,32 +157,43 @@
 <div class="welcome">
   <div class="jumbotron">
     <!DOCTYPE html>
-<html>
-<head>
-	<title>Vídeos do YouTube</title>
-	<meta charset="UTF-8">
-</head>
-<body>
-	<h1>Vídeos do YouTube</h1>
-	<ul id="videos"></ul>
-
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			var url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg";
-			$.get(url, function(data) {
-				$(data).find("entry").each(function() {
-					var video = $(this);
-					var title = video.find("title").text();
-					var link = video.find("link").attr("href");
-					var listItem = "<li><a href='" + link + "'>" + title + "</a></li>";
-					$("#videos").append(listItem);
-				});
-			});
-		});
-	</script>
-</body>
-</html>
+    <html>
+      <head>
+        <title>Listagem de Vídeos do Canal do YouTube</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+          // Insira sua chave de API do YouTube aqui
+          var apiKey = "AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4";
+          
+          // Insira o ID do canal do YouTube aqui
+          var channelId = "UCkQEoCoT8WtYcNJO3oBHreg";
+          
+          // URL da API do YouTube para obter os vídeos do canal
+          var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=" + channelId + "&maxResults=10&order=date&type=video&key=" + apiKey;
+          
+          $(document).ready(function() {
+            $.getJSON(url, function(data) {
+              var items = data.items;
+              var output = "";
+              
+              // Cria uma lista de vídeos com seus títulos e links
+              $.each(items, function(index, item) {
+                var videoId = item.id.videoId;
+                var videoTitle = item.snippet.title;
+                output += '<li><a href="https://www.youtube.com/watch?v=' + videoId + '">' + videoTitle + '</a></li>';
+              });
+              
+              // Adiciona a lista de vídeos ao elemento com o ID "videos"
+              $('#videos').html(output);
+            });
+          });
+        </script>
+      </head>
+      <body>
+        <h1>Listagem de Vídeos do Canal do YouTube</h1>
+        <ul id="videos"></ul>
+      </body>
+    </html>
   </div>
 </div>
 <footer class="text-center py-3">

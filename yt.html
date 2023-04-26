@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h1 class="text-center">Lista de vídeos do canal</h1>
+    <h1 class="text-center">Notícias</h1>
     <table class="table table-striped mt-4">
       <thead>
         <tr>
@@ -24,7 +24,7 @@
       </tbody>
     </table>
     <div class="text-center">
-      <button class="btn btn-primary" id="load-more">Ver mais</button>
+      <button class="btn btn-primary" id="load-more">Ver Mais!</button>
     </div>
   </div>
 
@@ -33,7 +33,8 @@
       var API_KEY = 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4';
       var CHANNEL_ID = 'CUCkQEoCoT8WtYcNJO3oBHreg';
       var MAX_RESULTS = 10;
-      var nextPageToken = "";
+      var nextPageToken = null;
+      var loadedVideos = 0;
 
       function getVideos() {
         $.get(
@@ -43,12 +44,17 @@
             channelId: CHANNEL_ID,
             key: API_KEY,
             maxResults: MAX_RESULTS,
-            pageToken: nextPageToken ? nextPageToken : '' // operador ternário para verificar se nextPageToken é nulo
-
+            pageToken: nextPageToken
           },
           function(data) {
             var videos = data.items;
-            nextPageToken = data.nextPageToken; // Atualiza o valor do nextPageToken
+            var totalResults = data.pageInfo.totalResults;
+            if (videos.length < MAX_RESULTS || loadedVideos + videos.length >= totalResults) {
+              $('#load-more').hide();
+            } else {
+              loadedVideos += videos.length;
+              nextPageToken = data.nextPageToken;
+            }
             var tbody = $('#videos-table');
             for (var i = 0; i < videos.length; i++) {
               var video = videos[i];
@@ -57,19 +63,21 @@
               var publishedAt = new Date(video.snippet.publishedAt);
               var publishedDate = publishedAt.toLocaleDateString();
               var publishedTime = publishedAt.toLocaleTimeString();
-              var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedDate + ' ' + publishedTime + '</td></tr>';
-              tbody.append(row);
-            }
-          }
-        );
+              var ideoId = video.id.videoId;
+              var videoUrl = 'https://www.youtube.com/watch?v=' + videoId;
+              var thumbnailHtml = '<a href="' + videoUrl + '"><img src="' + thumbnail + '" alt="' + title + '"></a>';
+               var titleHtml = '<a href="' + videoUrl + '">' + title + '</a>';
+              var dateHtml = publishedDate + ' ' + publishedTime;
+              var tr = '<tr><td>' + thumbnailHtml + '</td><td>' + titleHtml + '</td><td>' + dateHtml + '</td></tr>';
+          tbody.append(tr);
+        }
       }
+    );
+  }
 
-      $('#load-more').click(function() {
-        getVideos();
-      });
+  getVideos();
 
-      getVideos();
-    });
-  </script>
-</body>
-</html>
+  $('#load-more').click(function() {
+    getVideos();
+  });
+});

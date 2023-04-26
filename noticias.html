@@ -159,34 +159,49 @@
   <!DOCTYPE html>
   <html>
   <head>
-    <title>Exibindo feed RSS</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("feeds", "1");
-      function initialize() {
-        var feed = new google.feeds.Feed("https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg");
-        feed.setNumEntries(10);
-        feed.load(function(result) {
-          if (!result.error) {
-            var container = $('#rss-feed');
-            container.empty();
-            for (var i = 0; i < result.feed.entries.length; i++) {
-              var entry = result.feed.entries[i];
-              var html = '<div>';
-              html += '<h2><a href="' + entry.link + '">' + entry.title + '</a></h2>';
-              html += '<p>' + entry.contentSnippet + '</p>';
-              html += '</div>';
-              container.append(html);
-            }
-          }
-        });
-      }
-      google.setOnLoadCallback(initialize);
-    </script>
+    <title>Feed do YouTube</title>
+    <meta charset="utf-8">
   </head>
   <body>
-    <div id="rss-feed"></div>
+    <table id="feed">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Título</th>
+          <th>Horário</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  
+    <script>
+      // Carrega o XML do feed do YouTube
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          // Analisa o documento XML usando a API do DOM
+          var xmlDoc = this.responseXML;
+          var entries = xmlDoc.getElementsByTagName("entry");
+          var tableBody = document.querySelector("#feed tbody");
+  
+          // Cria uma tabela HTML com os dados do feed
+          for (var i = entries.length - 1; i >= 0; i--) {
+            var entry = entries[i];
+            var title = entry.getElementsByTagName("title")[0].textContent;
+            var date = new Date(entry.getElementsByTagName("published")[0].textContent);
+            var dateString = date.toLocaleDateString();
+            var timeString = date.toLocaleTimeString();
+  
+            var row = document.createElement("tr");
+            row.innerHTML = "<td>" + dateString + "</td><td>" + title + "</td><td>" + timeString + "</td>";
+  
+            tableBody.appendChild(row);
+          }
+        }
+      };
+      xhr.open("GET", "https://www.youtube.com/feeds/videos.xml?channel_id=UCkQEoCoT8WtYcNJO3oBHreg", true);
+      xhr.send();
+    </script>
   </body>
   </html>
   

@@ -120,23 +120,6 @@
       background-color: #007070;
     }
 
-    /* estilo do conteúdo */
-    #content {
-      margin-left: 0;
-      transition: all 0.3s ease;
-      /* adiciona padding para não ficar sob o menu */
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      min-height: 100vh;
-      align-items: center;
-      margin-top: auto;
-      max-height: calc(100vh - 40px);
-      /* subtrai a altura do padding */
-    }
-
-
     /* estilo do botão de fechar o menu */
     #close-btn {
       cursor: pointer;
@@ -173,66 +156,14 @@
         </button>
       </li>
       <li>MENU</li>
-      <li class="active"><a href="#" data-target="#page1">Página 1</a></li>
-      <li><a href="#" data-target="#page2">Página 2</a></li>
-      <li><a href="#" data-target="#page3">Página 3</a></li>
-      <li><a href="#" data-target="#page4">Página 4</a></li>
-      <li><a href="#" data-target="#page5">Página 5</a></li>
-      <li><a href="#" data-target="#page6">Página 6</a></li>
+      <li class="active"><a href="home.html" data-target="#page1">Inicio</a></li>
+      <li><a href="noticias.html" data-target="#page2">Notícias 2</a></li>
+      <li><a href="cursos.html" data-target="#page3">Cursos</a></li>
+      <li><a href="analises.html" data-target="#page4">Análises</a></li>
+      <li><a href="parceiros.html" data-target="#page5">Parceiros</a></li>
     </ul>
 
   </div>
-  <!-- conteúdo -->
-  <div id="content">
-    <div id="page1" class="container">
-    </div>
-    <div id="page2" class="container">
-      <h1>Página 2</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-        suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-        pharetra. Pro
-        in laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-        vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-        lectus orci vel lorem.</p>
-    </div>
-    <div id="page3" class="container">
-      <h1>Página 3</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-        suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-        pharetra.Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-        vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-        lectus orci vel lorem.</p>
-    </div>
-    <div id="page4" class="container">
-      <h1>Página 4</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-        suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-        pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-        vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-        lectus orci vel lorem.</p>
-    </div>
-    <div id="page5" class="container">
-      <h1>Página 5</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-        suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-        pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-        vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-        lectus orci vel lorem.</p>
-    </div>
-    <div id="page6" class="container">
-      <h1>Página 6</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu mauris ex. Morbi bibendum dolor et mauris
-        suscipit, vitae dapibus leo iaculis. Donec id sapien at magna pulvinar consectetur. In euismod rutrum nisi a
-        pharetra. Proin laoreet erat vel sem ultrices eleifend. Integer vel diam eget enim interdum mollis. Nam mattis
-        vel nibh sed rhoncus. Praesent viverra, lorem at ullamcorper hendrerit, ligula leo congue velit, ac vestibulum
-        lectus orci vel lorem.</p>
-    </div>
 
-  </div>
-  <script>
-$(document).ready(function() {
-  $("#page1").load("home.html");
-});
-</script>
 </body>
 </html>

@@ -17,7 +17,7 @@
         <tr>
           <th>Thumbnail</th>
           <th>Título</th>
-          <th>Data de publicação</th>
+          <th>Data/Hora</th>
         </tr>
       </thead>
       <tbody id="videos-table">
@@ -33,33 +33,35 @@
       var API_KEY = 'AIzaSyCUAB7nGGcsnrc0Crqo1NVsq55bwbQ0vW4';
       var CHANNEL_ID = 'CUCkQEoCoT8WtYcNJO3oBHreg';
       var MAX_RESULTS = 10;
-      var nextPageToken = '';
+      var nextPageToken = 'null';
 
-    function getVideos() {
-  $.get(
-    'https://www.googleapis.com/youtube/v3/search', 
-    {
-      part: 'snippet',
-      channelId: CHANNEL_ID,
-      key: API_KEY,
-      maxResults: MAX_RESULTS,
-      pageToken: nextPageToken
-    },
-    function(data) {
-      var videos = data.items;
-      nextPageToken = data.nextPageToken; // Atualiza o valor do nextPageToken
-      var tbody = $('#videos-table');
-      for (var i = 0; i < videos.length; i++) {
-        var video = videos[i];
-        var title = video.snippet.title;
-        var thumbnail = video.snippet.thumbnails.medium.url;
-        var publishedAt = new Date(video.snippet.publishedAt).toLocaleString();
-        var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedAt + '</td></tr>';
-        tbody.append(row);
+      function getVideos() {
+        $.get(
+          'https://www.googleapis.com/youtube/v3/search', 
+          {
+            part: 'snippet',
+            channelId: CHANNEL_ID,
+            key: API_KEY,
+            maxResults: MAX_RESULTS,
+            pageToken: nextPageToken
+          },
+          function(data) {
+            var videos = data.items;
+            nextPageToken = data.nextPageToken; // Atualiza o valor do nextPageToken
+            var tbody = $('#videos-table');
+            for (var i = 0; i < videos.length; i++) {
+              var video = videos[i];
+              var title = video.snippet.title;
+              var thumbnail = video.snippet.thumbnails.medium.url;
+              var publishedAt = new Date(video.snippet.publishedAt);
+              var publishedDate = publishedAt.toLocaleDateString();
+              var publishedTime = publishedAt.toLocaleTimeString();
+              var row = '<tr><td><img src="' + thumbnail + '" alt="' + title + '"></td><td>' + title + '</td><td>' + publishedDate + ' ' + publishedTime + '</td></tr>';
+              tbody.append(row);
+            }
+          }
+        );
       }
-    }
-  );
-}
 
       $('#load-more').click(function() {
         getVideos();

@@ -115,17 +115,22 @@
         }
 
         function onClientLoad() {
-    gapi.client.load('youtube', 'v3', function () {
-        loadVideos();  
-    });
+  gapi.client.load('youtube', 'v3', function () {
+      loadVideos();  
+  }); // adicionado um colchete de fechamento aqui
 }
 
 $('#loadMore').hide();
 
 $('#loadMore').on('click', function () {
-    loadMoreVideos();
+  loadMoreVideos();
 });
 
+$(function () {
+  $.getScript('config.js', function () {
+      gapi.load('client', onClientLoad);
+  });
+});
 $(function () {
     $.getScript('config.js', function () {
         gapi.load('client', onClientLoad);

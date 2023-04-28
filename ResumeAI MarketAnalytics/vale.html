@@ -1,90 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>ResumeAI Market Analitycs - Exibição de Arquivo de Texto</title>
 	<meta charset="utf-8">
-	<title>ResumeAI Market Analitycs - Vale</title>
-	<style type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
 		body {
-			margin: 0;
-			padding: 0;
 			background-color: #008080;
+			color: #FFFFFF;
 			font-family: Arial, sans-serif;
-			color: #000000;
-		}
-		.container {
-			margin: 10px;
-			padding: 20px;
-			background-color: #FFFFFF;
-			border-radius: 10px;
-		}
-		h1 {
-			font-size: 32px;
-			margin: 0 0 20px 0;
-		}
-		.button-container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin: 10px;
-			padding: 10px;
-			background-color: #008080;
-			border-radius: 5px;
-		}
-		.button {
-			display: block;
-			margin: 10px;
-			padding: 10px 20px;
-			background-color: #FFFFFF;
-			color: #008080;
-			font-size: 16px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-		.button:hover {
-			background-color: #000000;
-			color: #FFFFFF;
-			transform: scale(1.1);
-		}
-		.content {
-			margin: 20px 0;
-			padding: 10px;
-			background-color: #FFFFFF;
-			border-radius: 5px;
-		}
-		.instagram {
-			position: absolute;
-			bottom: 10px;
-			left: 50%;
-			transform: translateX(-50%);
-			color: #FFFFFF;
-		}
-		.instagram a {
-			color: #FFFFFF;
-		}
-		.instagram a:hover {
-			color: #008080;
-		}
-	</style>
+		}	h1 {
+		text-align: center;
+		margin-top: 50px;
+	}
+	
+	pre {
+		margin: 0 auto;
+		width: 80%;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		font-size: 16px;
+		line-height: 1.5em;
+		background-color: #FFFFFF;
+		color: #008080;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+	}
+</style>
 </head>
 <body>
-	<div class="container">
-		<h1>Vale S.A.</h1>
-		<div class="button-container">
-			<a class="button" href="vale.html">Voltar</a>
-			<a class="button" href="#">Doar</a>
-		</div>
-		<div class="content">
-			<?php
-				$myfile = fopen("vale1.txt", "r") or die("Não foi possível abrir o arquivo!");
-				echo fread($myfile,filesize("vale1.txt"));
-				fclose($myfile);
-			?>
-		</div>
-	</div>
-	<div class="instagram">
-		<a href="https://www.instagram.com/matheusreis.ofc" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
-	</div>
-</body>
-</html>
+	<h1>ResumeAI Market Analitycs</h1>
+	<pre id="texto"></pre>
+	<script>
+	window.onload = function() {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "nomedaempresa1.txt");
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				document.getElementById("texto").innerHTML = xhr.responseText;
+			}
+		}
+		xhr.send();
+	}
+</script>
+<div style="text-align:center;">
+	<a href="paginainicial.html"><button style="background-color: #FFFFFF; color: #008080; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Voltar</button></a>
+	<a href="https://www.paypal.com/donate?hosted_button_id=XXXXXXXXXXXXX"><button style="background-color: #FFFFFF; color: #008080; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Doar</button></a>
+</div>
+<footer style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #008080; height: 50px; display: flex; align-items: center; justify-content: center;">
+	<a href="https://www.instagram.com/matheusreis.ofc/" target="_blank"><img src="instagram.png" alt="Instagram" style="height: 30px; margin-right: 10px;"></a>
+	<p style="margin: 0;">Desenvolvido por ResumeAI</p>
+</footer>

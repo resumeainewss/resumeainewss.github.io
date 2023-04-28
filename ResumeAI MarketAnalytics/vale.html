@@ -9,48 +9,76 @@
 			background-color: #008080;
 			color: #FFFFFF;
 			font-family: Arial, sans-serif;
-		}	h1 {
-		text-align: center;
-		margin-top: 50px;
-	}
-	
-	pre {
-		margin: 0 auto;
-		width: 80%;
-		white-space: pre-wrap;
-		word-wrap: break-word;
-		font-size: 16px;
-		line-height: 1.5em;
-		background-color: #FFFFFF;
-		color: #008080;
-		padding: 20px;
-		border-radius: 10px;
-		box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-	}
-</style>
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		pre {
+			margin: 20px auto 0;
+			width: 80%;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			font-size: 16px;
+			line-height: 1.5em;
+			background-color: #FFFFFF;
+			color: #008080;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+		}
+
+		footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: #008080;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 9999;
+		}
+		
+		button {
+			background-color: #FFFFFF;
+			color: #008080;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-left: 10px;
+		}
+	</style>
 </head>
 <body>
 	<h1>ResumeAI Market Analitycs</h1>
 	<pre id="texto"></pre>
+
 	<script>
-	window.onload = function() {
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", "vale.txt");
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4 && xhr.status === 200) {
-				document.getElementById("texto").innerHTML = xhr.responseText;
+		window.onload = function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "texto.txt");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					document.getElementById("texto").innerHTML = xhr.responseText;
+				}
 			}
+			xhr.send();
 		}
-		xhr.send();
-	}
-</script>
-<div style="text-align:center;">
-	<a href="paginainicial.html"><button style="background-color: #FFFFFF; color: #008080; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Voltar</button></a>
-	<a href="https://www.paypal.com/donate?hosted_button_id=XXXXXXXXXXXXX"><button style="background-color: #FFFFFF; color: #008080; padding: 10px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Doar</button></a>
-</div>
-<footer style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #008080; height: 50px; display: flex; align-items: center; justify-content: center;">
-	<a href="https://www.instagram.com/matheusreis.ofc/" target="_blank"><img src="https://image.flaticon.com/icons/png/512/174/174855.png" alt="Instagram" style="height: 30px; margin-right: 10px;"></a>
-	<p style="margin: 0;">Desenvolvido por ResumeAI</p>
-</footer>
+	</script>
+	
+	<div style="text-align:center; margin-top: 20px;">
+		<a href="paginainicial.html"><button>Voltar</button></a>
+		<a href="https://www.paypal.com/donate?hosted_button_id=XXXXXXXXXXXXX"><button>Doar</button></a>
+	</div>
+
+	<footer>
+		<a href="https://www.instagram.com/matheusreis.ofc/" target="_blank"><img url="https://image.flaticon.com/icons/png/512/174/174855.png" alt="Instagram" style="height: 30px; margin-right: 10px;"></a>
+		<p style="margin: 0;">Desenvolvido por ResumeAI</p>
+	</footer>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ResumeAI Market Analytics - Verificar Conexão</title>
+	<style>
+		body {
+			background-color: #008080;
+			color: #FFFFFF;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		h1 {
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+		.button {
+			background-color: #FFFFFF;
+			color: #008080;
+			display: block;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			margin-top: 20px;
+		}
+		.button:hover {
+			background-color: #008080;
+			color: #FFFFFF;
+		}
+	</style>
+</head>
+<body>
+	<h1>ResumeAI Market Analytics - Verificar Conexão</h1>
+	<p>Verificando conexão com a internet...</p>
+	<script>
+		setTimeout(function() {
+			var isConnected = true; //Simula a conexão bem-sucedida
+			if (isConnected) {
+				window.location.href = "pagina_inicial.html";
+			} else {
+				document.body.innerHTML = "<h1>ResumeAI Market Analytics - Sem Conexão</h1><p>Não foi possível estabelecer uma conexão com a internet. Tente novamente mais tarde.</p><a href='verificar_conexao.html' class='button'>Tentar Novamente</a>";
+			}
+		}, 3000);
+	</script>
+</body>
+</html>

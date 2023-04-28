@@ -1,51 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ResumeAI Market Analytics - Vale</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* Estilos para a página */
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-      }
-      h1 {
-        color: #008080;
-        text-align: center;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      li {
-        margin: 5px 0;
-      }
-      /* Estilos para os botões */
-      .btn {
-        background-color: #008080;
-        border: none;
-        color: #ffffff;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-      .btn:hover {
-        background-color: #004040;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Análise para a Vale</h1>
-    <ul>
-      <li><a href="tecnica1.html" class="btn">Análise Técnica</a></li>
-      <li><a href="fundamental1.html" class="btn">Análise Fundamentalista</a></li>
-    </ul>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<title>ResumeAI Market Analitycs - Vale</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #008080;
+			font-family: Arial, sans-serif;
+			color: #FFFFFF;
+		}
+		.container {
+			margin: 10px;
+			padding: 20px;
+			background-color: #FFFFFF;
+			border-radius: 10px;
+		}
+		h1 {
+			font-size: 32px;
+			margin: 0 0 20px 0;
+		}
+		.button {
+			display: block;
+			margin: 10px;
+			padding: 10px 20px;
+			background-color: #FFFFFF;
+			color: #008080;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		.button:hover {
+			background-color: #008080;
+			color: #FFFFFF;
+			transform: scale(1.1);
+		}
+		.instagram {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Vale S.A.</h1>
+		<div id="content"></div>
+			<script>
+		// Função para ler o arquivo de texto
+		function loadTextFile(file) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					document.getElementById("content").innerHTML = xhr.responseText;
+				}
+			};
+			xhr.open("GET", file, true);
+			xhr.send();
+		}
+
+		// Chama a função para carregar o arquivo de texto
+		loadTextFile("vale.txt");
+	</script>
+
+	<button class="button" onclick="location.href='paginainicial.html'">Voltar</button>
+	<button class="button" onclick="alert('Em breve!')">Fazer uma Doação</button>
+</div>
+
+<a class="instagram" href="https://instagram.com/matheusreis.ofc" target="_blank"><img src="instagram.png"></a>
+</body>
 </html>

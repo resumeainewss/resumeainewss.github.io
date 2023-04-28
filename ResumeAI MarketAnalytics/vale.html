@@ -9,7 +9,7 @@
 			padding: 0;
 			background-color: #008080;
 			font-family: Arial, sans-serif;
-			color: #FFFFFF;
+			color: #000000;
 		}
 		.container {
 			margin: 10px;
@@ -20,6 +20,15 @@
 		h1 {
 			font-size: 32px;
 			margin: 0 0 20px 0;
+		}
+		.button-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 10px;
+			padding: 10px;
+			background-color: #008080;
+			border-radius: 5px;
 		}
 		.button {
 			display: block;
@@ -34,42 +43,48 @@
 			transition: all 0.3s ease;
 		}
 		.button:hover {
-			background-color: #008080;
+			background-color: #000000;
 			color: #FFFFFF;
 			transform: scale(1.1);
 		}
+		.content {
+			margin: 20px 0;
+			padding: 10px;
+			background-color: #FFFFFF;
+			border-radius: 5px;
+		}
 		.instagram {
-			position: fixed;
+			position: absolute;
 			bottom: 10px;
-			right: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #FFFFFF;
+		}
+		.instagram a {
+			color: #FFFFFF;
+		}
+		.instagram a:hover {
+			color: #008080;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<h1>Vale S.A.</h1>
-		<div id="content"></div>
-			<script>
-		// Função para ler o arquivo de texto
-		function loadTextFile(file) {
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					document.getElementById("content").innerHTML = xhr.responseText;
-				}
-			};
-			xhr.open("GET", file, true);
-			xhr.send();
-		}
-
-		// Chama a função para carregar o arquivo de texto
-		loadTextFile("vale.txt");
-	</script>
-
-	<button class="button" onclick="location.href='paginainicial.html'">Voltar</button>
-	<button class="button" onclick="alert('Em breve!')">Fazer uma Doação</button>
-</div>
-
-<a class="instagram" href="https://instagram.com/matheusreis.ofc" target="_blank"><img src="instagram.png"></a>
+		<div class="button-container">
+			<a class="button" href="vale.html">Voltar</a>
+			<a class="button" href="#">Doar</a>
+		</div>
+		<div class="content">
+			<?php
+				$myfile = fopen("vale1.txt", "r") or die("Não foi possível abrir o arquivo!");
+				echo fread($myfile,filesize("vale1.txt"));
+				fclose($myfile);
+			?>
+		</div>
+	</div>
+	<div class="instagram">
+		<a href="https://www.instagram.com/matheusreis.ofc" target="_blank"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
+	</div>
 </body>
 </html>

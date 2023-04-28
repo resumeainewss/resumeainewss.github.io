@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Petrobras</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #008080;
+			color: #FFFFFF;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		
+		h1 {
+			font-size: 2em;
+			margin-top: 20%;
+		}
+		
+		p {
+			font-size: 1.2em;
+			margin: 20px;
+			line-height: 1.5;
+		}
+		
+		button {
+			background-color: #FFFFFF;
+			color: #008080;
+			border: none;
+			padding: 10px 20px;
+			margin: 10px;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
+		
+		button:hover {
+			background-color: #008080;
+			color: #FFFFFF;
+		}
+		
+		.instagram {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Petrobras</h1>
+	<p id="descricao">Carregando descrição...</p>
+	<button onclick="window.location.href='paginainicial.html'">Voltar</button>
+	<button onclick="window.location.href='doar.html'">Doar</button>
+	<a href="https://instagram.com/matheusreis.ofc" target="_blank" class="instagram">Siga no Instagram</a>
+	
+	<script>
+		window.onload = function() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("descricao").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "petrobras.txt", true);
+			xhttp.send();
+		};
+	</script>
+</body>
+</html>

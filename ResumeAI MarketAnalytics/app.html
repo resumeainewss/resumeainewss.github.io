@@ -1,155 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-	<title>ResumeAI Market Analytics</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
-	<style>
-		body {
-			background-color: #f8f9fa;
-		}
-		.container {
-			margin-top: 20px;
-		}
-		.navbar {
-			background-color: #008080;
-		}
-		.navbar-brand, .navbar-text {
-			color: #ffffff !important;
-		}
-		h1, h2, h3 {
-			color: #008080;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ResumeAI Market Analytics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVpDMNlcbVFFaGtnDWfQTaGpZwE/6VQwDkXQsWJT0pXr"
+        crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .jumbotron {
+            background-color: #008080;
+            color: #fff;
+        }
+
+        .page-header {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            color: #008080;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .list-group-item {
+            border: none;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .list-group-item:hover {
+            background-color: #dee2e6;
+        }
+
+        .btn-outline-primary {
+            color: #008080;
+            border-color: #008080;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #008080;
+            color: #fff;
+        }
+
+        .btn-outline-success {
+            color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">ResumeAI Market Analytics</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="#conexao">Verificar Conexão</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#paginainicial">Página Inicial</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#vale">Vale</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#petrobras">Petrobras</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#gerdau">Gerdau</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#itau">Itau</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#bradesco">Bradesco</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#ambev">Ambev</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#weg">Weg</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#s
-antander">Santander</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#eletrobras">Eletrobras</a>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="display-4">ResumeAI Market Analytics</h1>
+            <hr class="my-4">
+            <p class="lead">Análise de empresas com inteligência artificial</p>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mb-4">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#conexao" id="conexao-link">Verificar Conexão</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#paginainicial" id="paginainicial-link">Página Inicial</a>
+                            </li>
+                            <li class="nav-item">
+                                <aclass="nav-link" href="#pesquisa" id="pesquisa-link">Pesquisar Empresa</a>
 </li>
 </ul>
 </div>
-</div>
 </nav>
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<h1>ResumeAI Market Analytics</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<h2>Dashboard de Análise de Empresas</h2>
-		</div>
-	</div>
-	<hr>
-
-	<div class="row">
-		<div class="col">
-			<h3>Verificar Conexão</h3>
-			<p>Clique no botão abaixo para verificar a conexão com o servidor:</p>
-			<button class="btn btn-primary">Verificar Conexão</button>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="paginainicial">
-			<h3>Página Inicial</h3>
-			<p>Bem-vindo(a) ao ResumeAI Market Analytics! Selecione uma empresa no menu acima para visualizar seus dados.</p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="vale">
-			<h3>Vale</h3>
-			<p>Aqui serão exibidos os dados da empresa Vale.</p>
-			<p>Nome da Empresa: <?php echo $empresa1; ?></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="petrobras">
-			<h3>Petrobras</h3>
-			<p>Aqui serão exibidos os dados da empresa Petrobras.</p>
-			<p>Nome da Empresa: <?php echo $empresa2; ?></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="gerdau">
-			<h3>Gerdau</h3>
-			<p>Aqui serão exibidos os dados da empresa Gerdau.</p>
-			<p>Nome da Empresa: <?php echo $empresa3; ?></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="itau">
-			<h3>Itau</h3>
-			<p>Aqui serão exibidos os dados da empresa Itau.</p>
-			<p>Nome da Empresa: <?php echo $empresa4; ?></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="bradesco">
-			<h3>Bradesco</h3>
-			<p>Aqui serão exibidos os dados da empresa Bradesco.</p>
-			<p>Nome da Empresa: <?php echo $empresa5; ?></p>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col" id="ambev">
-			<h3>Ambev</h3>
-			<p>Aqui serão exibidos os dados da empresa Ambev.</p>
-			<p>Nome da Empresa: <?php echo $empresa6; ?></p>
-		</div>
-  </div>
 </div>
 </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-conexao">Verificação de Conexão</h2>
+            </div>
+            <div class="alert alert-success" role="alert">
+                <p><i class="fas fa-check"></i> Conexão com o servidor estabelecida!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-paginainicial">Página Inicial</h2>
+            </div>
+            <p>Bem-vindo ao ResumeAI Market Analytics! Utilize o menu superior para navegar pelo sistema.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-pesquisa">Pesquisar Empresa</h2>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="input-empresa">Digite o nome da empresa:</label>
+                    <input type="text" class="form-control" id="input-empresa" placeholder="Ex: Vale">
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- VALE -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-vale">Vale</h2>
+            </div>
+            <p>Informações sobre a Vale.</p>
+        </div>
+    </div>
+
+    <!-- PETROBRAS -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-petrobras">Petrobras</h2>
+            </div>
+            <p>Informações sobre a Petrobras.</p>
+        </div>
+    </div>
+
+    <!-- GERDAU -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-gerdau">Gerdau</h2>
+            </div>
+            <p>Informações sobre a Gerdau.</p>
+        </div>
+    </div>
+
+    <!-- ITAU -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-itau">Itau</h2>
+            </div>
+            <p>Informações sobre o Itau.</p>
+        </div>
+    </div>
+
+    <!-- BRADESCO -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-bradesco">Bradesco</h2>
+            </div>
+            <p>Informações sobre o Bradesco.</p>
+        </div>
+    </div>
+
+    <!-- AMBEV -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2 id="titulo-ambev">Ambev</h2>
+</div>
+<p>Informações sobre a Ambev.</p>
+</div>
+</div>
+<!-- RENNER -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 id="titulo-renner">Renner</h2>
+        </div>
+        <p>Informações sobre a Renner.</p>
+    </div>
+</div>
+
+<!-- MAGAZINE LUIZA -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 id="titulo-magalu">Magazine Luiza</h2>
+        </div>
+        <p>Informações sobre a Magazine Luiza.</p>
+    </div>
+</div>
+
+<!-- CIELO -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 id="titulo-cielo">Cielo</h2>
+        </div>
+        <p>Informações sobre a Cielo.</p>
+    </div>
+</div>
+
+<!-- AMERICANAS -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 id="titulo-americanas">Lojas Americanas</h2>
+        </div>
+        <p>Informações sobre as Lojas Americanas.</p>
+    </div>
+</div>
+
+<!-- RICARDO ELETRO -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 id="titulo-ricardoeletro">Ricardo Eletro</h2>
+        </div>
+        <p>Informações sobre a Ricardo Eletro.</p>
+    </div>
+</div>
+</div>
+	<!-- /container -->
 </body>
 </html>

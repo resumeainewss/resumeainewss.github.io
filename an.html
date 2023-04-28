@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ResumeAI Market Analitycs - Exibição de Arquivo de Texto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #008080;
+			color: #FFFFFF;
+			font-family: Arial, sans-serif;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		pre {
+			margin: 0 auto;
+			width: 80%;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			font-size: 16px;
+			line-height: 1.5em;
+			background-color: #FFFFFF;
+			color: #008080;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+		}
+	</style>
+</head>
+<body>
+	<h1>ResumeAI Market Analitycs</h1>
+	<pre id="texto"></pre>
+
+	<script>
+		window.onload = function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "texto.txt");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					document.getElementById("texto").innerHTML = xhr.responseText;
+				}
+			}
+			xhr.send();
+		}
+	</script>
+</body>
+</html>

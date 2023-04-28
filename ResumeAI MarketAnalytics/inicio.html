@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Verificar Conexão</title>
-    <style>
-      /* Estilos para centralizar a mensagem */
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-      }
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Verificando conexão...</h1>
-    <script>
-      // Verifica se há conexão com a internet
-      if (navigator.onLine) {
-        // Se houver conexão, redireciona o usuário para a página inicial
-        window.location.href = "paginainicial.html";
-      } else {
-        // Se não houver conexão, exibe mensagem de erro
-        document.querySelector("h1").textContent = "Não há conexão disponível.";
-      }
-    </script>
-  </body>
+<head>
+	<title>Verificar Conexão</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #008080;
+			color: #FFFFFF;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		
+		h1 {
+			font-size: 2em;
+			margin-top: 50%;
+			animation: fade-in 2s ease-out;
+			animation-fill-mode: forwards;
+			opacity: 0;
+		}
+		
+		@keyframes fade-in {
+			0% {
+				transform: translateY(-20px);
+				opacity: 0;
+			}
+			50% {
+				transform: translateY(10px);
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.onload = function() {
+			setTimeout(function() {
+				if (navigator.onLine) {
+					window.location.href = "paginainicial.html";
+				} else {
+					document.getElementsByTagName("h1")[0].innerHTML = "Não há conexão disponível. Tente novamente mais tarde.";
+				}
+			}, 3000);
+		}
+	</script>
+	<h1>Verificando conexão...</h1>
+</body>
 </html>

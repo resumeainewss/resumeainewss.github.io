@@ -5,7 +5,8 @@ constructor() {
 this.estado = 'Disponivel'; // Começamos o jogo com o estado disponível
 this.fome = 0; // Começamos o jogo sem fome
 this.sono = 0; // Começamos o jogo sem sono
-this.dinheiro = 100; // Começamos o jogo sem dinheiro
+this.capital = 100; // Começamos o jogo sem dinheiro
+this.mutacoins = 0; // Começamos o jogo sem coins
 this.trabalho = false; // Começamos o jogo sem estar trabalhando
 this.tempoTrabalho = 0; // Começamos o jogo sem tempo de trabalho acumulado
 this.tempoDormindo = 0; // Começamos o jogo sem tempo de sono acumulado

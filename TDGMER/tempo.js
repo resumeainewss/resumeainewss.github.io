@@ -38,7 +38,7 @@
         imprimirHora() {
           const horaFormatada = ('0' + this.hora).slice(-2); // adiciona um zero à esquerda se a hora for menor que 10
           const minutoFormatado = ('0' + this.minuto).slice(-2); // adiciona um zero à esquerda se o minuto for menor que 10
-          document.getElementById('imprimirHora').innerText = `Dia ${this.dia}, ${horaFormatada}:${minutoFormatado}`;
+          document.getElementById('imprimirHora').innerText = `Dia ${this.dia} - ${horaFormatada}:${minutoFormatado}`;
         }
       }
 
